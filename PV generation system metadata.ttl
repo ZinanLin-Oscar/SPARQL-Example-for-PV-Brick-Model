@@ -1,0 +1,2274 @@
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix bsh: <https://brickschema.org/schema/BrickShape#> .
+@prefix ext: <https://www.HKUST_PV_System.com/schema/BrickExtension#> .
+@prefix extsh: <https://www.HKUST_PV_System.com/schema/BrickExtensionShape#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pvsystem: <urn:www.hkustphotovoltaic.com#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ext:altitude a brick:EntityProperty ;
+    rdfs:label "Altitude" ;
+    rdfs:range extsh:AltitudeShape ;
+    skos:definition "Altitude is a distance measurement, usually in the vertical or 'up' direction, between a reference datum and a point or object." .
+
+ext:brand a brick:EntityProperty ;
+    rdfs:label "Brand" ;
+    rdfs:range extsh:BrandShape ;
+    skos:definition "A brand is a name, term, design, symbol or any other feature that distinguishes one seller's good or service from those of other sellers." .
+
+ext:connectionDate a brick:EntityProperty ;
+    rdfs:label "connectionDate" ;
+    rdfs:range extsh:ConnectionDateShape ;
+    skos:definition "ConnectionDate refers to the date when the solar power plant is connected to the grid" .
+
+ext:contractor a brick:EntityProperty ;
+    rdfs:label "Contractor" ;
+    rdfs:range extsh:ContractorShape ;
+    skos:definition "A contractor is a person or company that performs work on a contract basis." .
+
+ext:locationProp a brick:EntityProperty ;
+    rdfs:label "Location Property" ;
+    rdfs:range extsh:locationPropShape ;
+    skos:definition "A semantic property used to link resources to their geographical location or address." .
+
+ext:module a brick:EntityProperty ;
+    rdfs:label "Module" ;
+    rdfs:range extsh:ModuleShape ;
+    skos:definition "A PV module is a collection of solar cells enclosed in protective materials, typically glass with a metal or plastic frame." .
+
+ext:number a brick:EntityProperty ;
+    rdfs:label "Number" ;
+    rdfs:range extsh:NumberShape ;
+    skos:definition "A number is a mathematical object used to count." .
+
+ext:panelDegradationFirstYear a brick:EntityProperty ;
+    rdfs:label "Panel Degradation First Year" ;
+    rdfs:range extsh:PanelDegradationFirstYearShape ;
+    skos:definition "Panel degradation first year is the rate at which the panel's power output decreases over the first year." .
+
+ext:panelLinearDegradation a brick:EntityProperty ;
+    rdfs:label "Panel Linear Degradation" ;
+    rdfs:range extsh:PanelLinearDegradationShape ;
+    skos:definition "Panel linear degradation is the rate at which the panel's power output decreases over time." .
+
+ext:panelRatedPowerOutput a brick:EntityProperty ;
+    rdfs:label "Panel Rated Power Output" ;
+    rdfs:range extsh:PanelRatedPowerOutputShape ;
+    skos:definition "Panel linear degradation is the rate at which the panel's power output decreases over time." .
+
+ext:specificType a brick:EntityProperty ;
+    rdfs:label "Specific Type" ;
+    rdfs:range extsh:SpecificTypeShape ;
+    skos:definition "A specific type is a particular kind of thing." .
+
+extsh:LocationPropShape a owl:Class,
+        sh:NodeShape ;
+    rdfs:subClassOf bsh:ValueShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path brick:value ] .
+
+pvsystem:CYT__Station_1_ a brick:PV_Generation_System ;
+    brick:coordinates [ brick:latitude 22.3 ;
+            brick:longitude 114.17 ] ;
+    brick:hasLocation [ brick:value "Staff_Quarter_Tower_12"^^xsd:string ],
+        [ brick:value "Cheng_Yu_Tung_Building"^^xsd:string ] ;
+    brick:hasPart pvsystem:CYT__Station_1__Inverter ;
+    ext:altitude [ brick:hasUnit unit:M ;
+            brick:value 132.0 ] ;
+    ext:connectionDate [ brick:value "2021-01-30T00:00:00"^^xsd:string ] ;
+    ext:contractor [ brick:value "Cheng_Yu_Tung_Building"^^xsd:string ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
+            brick:value 25.0 ] .
+
+pvsystem:CYT__Station_2_ a brick:PV_Generation_System ;
+    brick:coordinates [ brick:latitude 22.3 ;
+            brick:longitude 114.17 ] ;
+    brick:hasLocation [ brick:value "Cheng_Yu_Tung_Building"^^xsd:string ],
+        [ brick:value "Staff_Quarter_Tower_14"^^xsd:string ] ;
+    brick:hasPart pvsystem:CYT__Station_2__Inverter ;
+    ext:altitude [ brick:hasUnit unit:M ;
+            brick:value 132.0 ] ;
+    ext:connectionDate [ brick:value "2021-01-30T00:00:00"^^xsd:string ] ;
+    ext:contractor [ brick:value "Cheng_Yu_Tung_Building"^^xsd:string ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
+            brick:value 25.0 ] .
+
+pvsystem:Indoor_Sport_Center a brick:PV_Generation_System ;
+    brick:coordinates [ brick:latitude 22.28 ;
+            brick:longitude 114.17 ] ;
+    brick:hasLocation [ brick:value "Indoor_Sport_Centre_Building"^^xsd:string ] ;
+    brick:hasPart pvsystem:Indoor_Sport_Center_Inverter ;
+    ext:altitude [ brick:hasUnit unit:M ;
+            brick:value 3.0 ] ;
+    ext:connectionDate [ brick:value "2021-12-01T00:00:00"^^xsd:string ] ;
+    ext:contractor [ brick:value "Indoor_Sport_Centre_Building"^^xsd:string ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
+            brick:value 33.3 ] .
+
+pvsystem:LSK_North a brick:PV_Generation_System ;
+    brick:coordinates [ brick:latitude 22.33 ;
+            brick:longitude 114.18 ] ;
+    brick:hasLocation [ brick:value "Lee_Shau_Kee_Business_Building"^^xsd:string ] ;
+    brick:hasPart pvsystem:LSK_North_Inverter ;
+    ext:altitude [ brick:hasUnit unit:M ;
+            brick:value 142.0 ] ;
+    ext:connectionDate [ brick:value "2021-04-30T00:00:00"^^xsd:string ] ;
+    ext:contractor [ brick:value "Lee_Shau_Kee_Business_Building"^^xsd:string ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
+            brick:value 55.0 ] .
+
+pvsystem:LSK_South a brick:PV_Generation_System ;
+    brick:coordinates [ brick:latitude 22.33 ;
+            brick:longitude 114.18 ] ;
+    brick:hasLocation [ brick:value "Lee_Shau_Kee_Business_Building"^^xsd:string ] ;
+    brick:hasPart pvsystem:LSK_South_Inverter ;
+    ext:altitude [ brick:hasUnit unit:M ;
+            brick:value 152.0 ] ;
+    ext:connectionDate [ brick:value "2021-04-30T00:00:00"^^xsd:string ] ;
+    ext:contractor [ brick:value "Lee_Shau_Kee_Business_Building"^^xsd:string ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
+            brick:value 25.0 ] .
+
+pvsystem:Library a brick:PV_Generation_System ;
+    brick:coordinates [ brick:latitude 22.28 ;
+            brick:longitude 114.17 ] ;
+    brick:hasLocation [ brick:value "AcademicBuilding"^^xsd:string ] ;
+    brick:hasPart pvsystem:Library_Inverter_1,
+        pvsystem:Library_Inverter_2,
+        pvsystem:Library_Inverter_3 ;
+    ext:altitude [ brick:hasUnit unit:M ;
+            brick:value 87.0 ] ;
+    ext:connectionDate [ brick:value "2022-05-31 00:00:00"^^xsd:string ] ;
+    ext:contractor [ brick:value "Solaredge"^^xsd:string ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
+            brick:value 170.2 ] .
+
+pvsystem:SQ1 a brick:PV_Generation_System ;
+    brick:coordinates [ brick:latitude 22.33 ;
+            brick:longitude 114.18 ] ;
+    brick:hasLocation [ brick:value "Staff_Quarter_Tower_1"^^xsd:string ] ;
+    brick:hasPart pvsystem:SQ1_Inverter ;
+    ext:altitude [ brick:hasUnit unit:M ;
+            brick:value 94.0 ] ;
+    ext:connectionDate [ brick:value "2021-04-30T00:00:00"^^xsd:string ] ;
+    ext:contractor [ brick:value "Staff_Quarter_Tower_1"^^xsd:string ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
+            brick:value 27.6 ] .
+
+pvsystem:SQ10 a brick:PV_Generation_System ;
+    brick:coordinates [ brick:latitude 22.3 ;
+            brick:longitude 114.17 ] ;
+    brick:hasLocation [ brick:value "Staff_Quarter_Tower_10"^^xsd:string ] ;
+    brick:hasPart pvsystem:SQ10_Inverter ;
+    ext:altitude [ brick:hasUnit unit:M ;
+            brick:value 124.0 ] ;
+    ext:connectionDate [ brick:value "2021-04-30T00:00:00"^^xsd:string ] ;
+    ext:contractor [ brick:value "Staff_Quarter_Tower_10"^^xsd:string ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
+            brick:value 30.4 ] .
+
+pvsystem:SQ11 a brick:PV_Generation_System ;
+    brick:coordinates [ brick:latitude 22.3 ;
+            brick:longitude 114.17 ] ;
+    brick:hasPart pvsystem:UST_SQ11_Inverter ;
+    ext:altitude [ brick:hasUnit unit:M ;
+            brick:value 124.0 ] ;
+    ext:connectionDate [ brick:value "2021-04-30T00:00:00"^^xsd:string ] ;
+    ext:contractor [ brick:value "SMA"^^xsd:string ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
+            brick:value 32.51 ] .
+
+pvsystem:SQ12 a brick:PV_Generation_System ;
+    brick:coordinates [ brick:latitude 22.3 ;
+            brick:longitude 114.17 ] ;
+    brick:hasPart pvsystem:UST_SQ12_Inverter ;
+    ext:altitude [ brick:hasUnit unit:M ;
+            brick:value 123.0 ] ;
+    ext:connectionDate [ brick:value "2021-02-27T00:00:00"^^xsd:string ] ;
+    ext:contractor [ brick:value "SMA"^^xsd:string ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
+            brick:value 32.12 ] .
+
+pvsystem:SQ13 a brick:PV_Generation_System ;
+    brick:coordinates [ brick:latitude 22.3 ;
+            brick:longitude 114.17 ] ;
+    brick:hasLocation [ brick:value "Staff_Quarter_Tower_13"^^xsd:string ] ;
+    brick:hasPart pvsystem:SQ13_Inverter ;
+    ext:altitude [ brick:hasUnit unit:M ;
+            brick:value 125.0 ] ;
+    ext:connectionDate [ brick:value "2021-02-27T00:00:00"^^xsd:string ] ;
+    ext:contractor [ brick:value "Staff_Quarter_Tower_13"^^xsd:string ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
+            brick:value 28.47 ] .
+
+pvsystem:SQ14 a brick:PV_Generation_System ;
+    brick:coordinates [ brick:latitude 22.3 ;
+            brick:longitude 114.17 ] ;
+    brick:hasPart pvsystem:UST_SQ14_Inverter ;
+    ext:altitude [ brick:hasUnit unit:M ;
+            brick:value 125.0 ] ;
+    ext:connectionDate [ brick:value "2021-02-27T00:00:00"^^xsd:string ] ;
+    ext:contractor [ brick:value "SMA"^^xsd:string ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
+            brick:value 32.9 ] .
+
+pvsystem:SQ15 a brick:PV_Generation_System ;
+    brick:coordinates [ brick:latitude 22.3 ;
+            brick:longitude 114.17 ] ;
+    brick:hasPart pvsystem:UST_SQ15_Inverter ;
+    ext:altitude [ brick:hasUnit unit:M ;
+            brick:value 123.0 ] ;
+    ext:connectionDate [ brick:value "2021-02-27T00:00:00"^^xsd:string ] ;
+    ext:contractor [ brick:value "SMA"^^xsd:string ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
+            brick:value 33.29 ] .
+
+pvsystem:SQ16 a brick:PV_Generation_System ;
+    brick:coordinates [ brick:latitude 22.3 ;
+            brick:longitude 114.17 ] ;
+    brick:hasLocation [ brick:value "Staff_Quarter_Tower_16"^^xsd:string ] ;
+    brick:hasPart pvsystem:SQ16_Inverter ;
+    ext:altitude [ brick:hasUnit unit:M ;
+            brick:value 127.0 ] ;
+    ext:connectionDate [ brick:value "2021-02-27T00:00:00"^^xsd:string ] ;
+    ext:contractor [ brick:value "Staff_Quarter_Tower_16"^^xsd:string ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
+            brick:value 33.15 ] .
+
+pvsystem:SQ17 a brick:PV_Generation_System ;
+    brick:coordinates [ brick:latitude 22.3 ;
+            brick:longitude 114.17 ] ;
+    brick:hasLocation [ brick:value "Staff_Quarter_Tower_17"^^xsd:string ] ;
+    brick:hasPart pvsystem:SQ17_Inverter ;
+    ext:altitude [ brick:hasUnit unit:M ;
+            brick:value 127.0 ] ;
+    ext:connectionDate [ brick:value "2021-02-27T00:00:00"^^xsd:string ] ;
+    ext:contractor [ brick:value "Staff_Quarter_Tower_17"^^xsd:string ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
+            brick:value 37.05 ] .
+
+pvsystem:SQ18 a brick:PV_Generation_System ;
+    brick:coordinates [ brick:latitude 22.3 ;
+            brick:longitude 114.17 ] ;
+    brick:hasLocation [ brick:value "Staff_Quarter_Tower_18"^^xsd:string ],
+        [ brick:value "Staff_Quarter_Tower_15"^^xsd:string ] ;
+    brick:hasPart pvsystem:SQ18_Inverter ;
+    ext:altitude [ brick:hasUnit unit:M ;
+            brick:value 125.0 ] ;
+    ext:connectionDate [ brick:value "2021-01-30T00:00:00"^^xsd:string ] ;
+    ext:contractor [ brick:value "Staff_Quarter_Tower_18"^^xsd:string ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
+            brick:value 33.93 ] .
+
+pvsystem:SQ19 a brick:PV_Generation_System ;
+    brick:coordinates [ brick:latitude 22.3 ;
+            brick:longitude 114.17 ] ;
+    brick:hasPart pvsystem:UST_SQ19_Inverter ;
+    ext:altitude [ brick:hasUnit unit:M ;
+            brick:value 124.0 ] ;
+    ext:connectionDate [ brick:value "2021-01-30T00:00:00"^^xsd:string ] ;
+    ext:contractor [ brick:value "SMA"^^xsd:string ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
+            brick:value 32.51 ] .
+
+pvsystem:SQ2 a brick:PV_Generation_System ;
+    brick:coordinates [ brick:latitude 22.33 ;
+            brick:longitude 114.18 ] ;
+    brick:hasLocation [ brick:value "Staff_Quarter_Tower_2"^^xsd:string ] ;
+    brick:hasPart pvsystem:SQ2_Inverter ;
+    ext:altitude [ brick:hasUnit unit:M ;
+            brick:value 91.0 ] ;
+    ext:connectionDate [ brick:value "2021-04-30T00:00:00"^^xsd:string ] ;
+    ext:contractor [ brick:value "Staff_Quarter_Tower_2"^^xsd:string ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
+            brick:value 33.3 ] .
+
+pvsystem:SQ3 a brick:PV_Generation_System ;
+    brick:coordinates [ brick:latitude 22.41 ;
+            brick:longitude 114.21 ] ;
+    brick:hasLocation [ brick:value "Staff_Quarter_Tower_3"^^xsd:string ] ;
+    brick:hasPart pvsystem:SQ3_Inverter ;
+    ext:altitude [ brick:hasUnit unit:M ;
+            brick:value 79.0 ] ;
+    ext:connectionDate [ brick:value "2021-06-01T00:00:00"^^xsd:string ] ;
+    ext:contractor [ brick:value "Staff_Quarter_Tower_3"^^xsd:string ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
+            brick:value 33.3 ] .
+
+pvsystem:SQ4 a brick:PV_Generation_System ;
+    brick:coordinates [ brick:latitude 22.41 ;
+            brick:longitude 114.21 ] ;
+    brick:hasLocation [ brick:value "Staff_Quarter_Tower_4"^^xsd:string ] ;
+    brick:hasPart pvsystem:SQ4_Inverter ;
+    ext:altitude [ brick:hasUnit unit:M ;
+            brick:value 73.0 ] ;
+    ext:connectionDate [ brick:value "2021-04-30T00:00:00"^^xsd:string ] ;
+    ext:contractor [ brick:value "Staff_Quarter_Tower_4"^^xsd:string ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
+            brick:value 33.3 ] .
+
+pvsystem:SQ567 a brick:PV_Generation_System ;
+    brick:coordinates [ brick:latitude 22.41 ;
+            brick:longitude 114.21 ] ;
+    brick:hasLocation [ brick:value "Staff_Quarter_Tower_5_7"^^xsd:string ] ;
+    brick:hasPart pvsystem:SQ567_Inverter ;
+    ext:altitude [ brick:hasUnit unit:M ;
+            brick:value 41.0 ] ;
+    ext:connectionDate [ brick:value "2021-06-01T00:00:00"^^xsd:string ] ;
+    ext:contractor [ brick:value "Staff_Quarter_Tower_5_7"^^xsd:string ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
+            brick:value 47.97 ] .
+
+pvsystem:SQ567_Flexible_PV a brick:PV_Generation_System ;
+    brick:coordinates [ brick:latitude 22.41 ;
+            brick:longitude 114.21 ] ;
+    brick:hasLocation [ brick:value "Staff_Quarter_Tower_5_7"^^xsd:string ] ;
+    brick:hasPart pvsystem:SQ567_Flexible_PV_Inverter ;
+    ext:altitude [ brick:hasUnit unit:M ;
+            brick:value 41.0 ] ;
+    ext:connectionDate [ brick:value "2021-06-01T00:00:00"^^xsd:string ] ;
+    ext:contractor [ brick:value "Staff_Quarter_Tower_5_7"^^xsd:string ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
+            brick:value 11.16 ] .
+
+pvsystem:SQ8 a brick:PV_Generation_System ;
+    brick:coordinates [ brick:latitude 22.3 ;
+            brick:longitude 114.17 ] ;
+    brick:hasPart pvsystem:UST_SQ8_Inverter ;
+    ext:altitude [ brick:hasUnit unit:M ;
+            brick:value 122.0 ] ;
+    ext:connectionDate [ brick:value "2021-02-27T00:00:00"^^xsd:string ] ;
+    ext:contractor [ brick:value "SMA"^^xsd:string ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
+            brick:value 32.51 ] .
+
+pvsystem:SQ9 a brick:PV_Generation_System ;
+    brick:coordinates [ brick:latitude 22.3 ;
+            brick:longitude 114.17 ] ;
+    brick:hasLocation [ brick:value "Staff_Quarter_Tower_9"^^xsd:string ] ;
+    brick:hasPart pvsystem:SQ9_Inverter ;
+    ext:altitude [ brick:hasUnit unit:M ;
+            brick:value 123.0 ] ;
+    ext:connectionDate [ brick:value "2021-02-27T00:00:00"^^xsd:string ] ;
+    ext:contractor [ brick:value "Staff_Quarter_Tower_9"^^xsd:string ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
+            brick:value 30.81 ] .
+
+pvsystem:SQ_Apartment13_24 a brick:PV_Generation_System ;
+    brick:coordinates [ brick:latitude 22.41 ;
+            brick:longitude 114.21 ] ;
+    brick:hasLocation [ brick:value "Staff_Quarters_Apartments_13_24"^^xsd:string ] ;
+    brick:hasPart pvsystem:SQ_Apartment13_24_Inverter ;
+    ext:altitude [ brick:hasUnit unit:M ;
+            brick:value 120.0 ] ;
+    ext:connectionDate [ brick:value "2021-07-07T00:00:00"^^xsd:string ] ;
+    ext:contractor [ brick:value "Staff_Quarters_Apartments_13_24"^^xsd:string ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
+            brick:value 17.0 ] .
+
+pvsystem:SQ_Apartment1_12 a brick:PV_Generation_System ;
+    brick:coordinates [ brick:latitude 22.41 ;
+            brick:longitude 114.21 ] ;
+    brick:hasLocation [ brick:value "Staff_Quarters_Apartments_1_12"^^xsd:string ] ;
+    brick:hasPart pvsystem:SQ_Apartment1_12_Inverter ;
+    ext:altitude [ brick:hasUnit unit:M ;
+            brick:value 120.0 ] ;
+    ext:connectionDate [ brick:value "2021-07-07T00:00:00"^^xsd:string ] ;
+    ext:contractor [ brick:value "Staff_Quarters_Apartments_1_12"^^xsd:string ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
+            brick:value 17.0 ] .
+
+pvsystem:SQ_Apartment25_36 a brick:PV_Generation_System ;
+    brick:coordinates [ brick:latitude 22.41 ;
+            brick:longitude 114.21 ] ;
+    brick:hasLocation [ brick:value "Staff_Quarters_Apartments_25_36"^^xsd:string ] ;
+    brick:hasPart pvsystem:SQ_Apartment25_36_Inverter ;
+    ext:altitude [ brick:hasUnit unit:M ;
+            brick:value 120.0 ] ;
+    ext:connectionDate [ brick:value "2021-07-07T00:00:00"^^xsd:string ] ;
+    ext:contractor [ brick:value "Staff_Quarters_Apartments_25_36"^^xsd:string ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
+            brick:value 17.0 ] .
+
+pvsystem:SQ_Apartment37_48 a brick:PV_Generation_System ;
+    brick:coordinates [ brick:latitude 22.41 ;
+            brick:longitude 114.21 ] ;
+    brick:hasLocation [ brick:value "Staff_Quarters_Apartments_37_48"^^xsd:string ] ;
+    brick:hasPart pvsystem:SQ_Apartment37_48_Inverter ;
+    ext:altitude [ brick:hasUnit unit:M ;
+            brick:value 118.0 ] ;
+    ext:connectionDate [ brick:value "2021-07-07T00:00:00"^^xsd:string ] ;
+    ext:contractor [ brick:value "Staff_Quarters_Apartments_37_48"^^xsd:string ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
+            brick:value 16.22 ] .
+
+pvsystem:SQ_Apartment37_48_Flexible_PV a brick:PV_Generation_System ;
+    brick:coordinates [ brick:latitude 22.41 ;
+            brick:longitude 114.21 ] ;
+    brick:hasLocation [ brick:value "Staff_Quarters_Apartments_37_48"^^xsd:string ] ;
+    brick:hasPart pvsystem:SQ_Apartment37_48_Flexible_PV_Inverter ;
+    ext:altitude [ brick:hasUnit unit:M ;
+            brick:value 118.0 ] ;
+    ext:connectionDate [ brick:value "2021-07-07T00:00:00"^^xsd:string ] ;
+    ext:contractor [ brick:value "Staff_Quarters_Apartments_37_48"^^xsd:string ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
+            brick:value 3.72 ] .
+
+pvsystem:SQ_Block_P a brick:PV_Generation_System ;
+    brick:coordinates [ brick:latitude 22.41 ;
+            brick:longitude 114.21 ] ;
+    brick:hasLocation [ brick:value "Staff_Quarter_Block_P"^^xsd:string ] ;
+    brick:hasPart pvsystem:SQ_Block_P_Inverter ;
+    ext:altitude [ brick:hasUnit unit:M ;
+            brick:value 133.0 ] ;
+    ext:connectionDate [ brick:value "2023-07-21T00:00:00"^^xsd:string ] ;
+    ext:contractor [ brick:value "Staff_Quarter_Block_P"^^xsd:string ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
+            brick:value 33.3 ] .
+
+pvsystem:SQ_Block_Q a brick:PV_Generation_System ;
+    brick:coordinates [ brick:latitude 22.28 ;
+            brick:longitude 114.17 ] ;
+    brick:hasLocation [ brick:value "Staff_Quarter_Block_Q"^^xsd:string ] ;
+    brick:hasPart pvsystem:SQ_Block_Q_Inverter ;
+    ext:altitude [ brick:hasUnit unit:M ;
+            brick:value 133.0 ] ;
+    ext:connectionDate [ brick:value "2022-08-12T00:00:00"^^xsd:string ] ;
+    ext:contractor [ brick:value "Staff_Quarter_Block_Q"^^xsd:string ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
+            brick:value 26.26 ] .
+
+pvsystem:SQ_Block_Q__Phrase_2_ a brick:PV_Generation_System ;
+    brick:coordinates [ brick:latitude 22.28 ;
+            brick:longitude 114.17 ] ;
+    brick:hasLocation [ brick:value "Staff_Quarter_Block_Q"^^xsd:string ] ;
+    brick:hasPart pvsystem:SQ_Block_Q__Phrase_2__Inverter ;
+    ext:altitude [ brick:hasUnit unit:M ;
+            brick:value 133.0 ] ;
+    ext:connectionDate [ brick:value "2022-09-23T00:00:00"^^xsd:string ] ;
+    ext:contractor [ brick:value "Staff_Quarter_Block_Q"^^xsd:string ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
+            brick:value 10.3 ] .
+
+pvsystem:SQ_Block_R a brick:PV_Generation_System ;
+    brick:coordinates [ brick:latitude 22.28 ;
+            brick:longitude 114.17 ] ;
+    brick:hasLocation [ brick:value "Staff_Quarter_Block_R"^^xsd:string ] ;
+    brick:hasPart pvsystem:SQ_Block_R_Inverter ;
+    ext:altitude [ brick:hasUnit unit:M ;
+            brick:value 133.0 ] ;
+    ext:connectionDate [ brick:value "2021-08-18T00:00:00"^^xsd:string ] ;
+    ext:contractor [ brick:value "Staff_Quarter_Block_R"^^xsd:string ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
+            brick:value 33.3 ] .
+
+pvsystem:SQ_Block_S a brick:PV_Generation_System ;
+    brick:coordinates [ brick:latitude 22.28 ;
+            brick:longitude 114.17 ] ;
+    brick:hasLocation [ brick:value "Staff_Quarter_Block_S"^^xsd:string ] ;
+    brick:hasPart pvsystem:SQ_Block_S_Inverter ;
+    ext:altitude [ brick:hasUnit unit:M ;
+            brick:value 133.0 ] ;
+    ext:connectionDate [ brick:value "2021-08-18T00:00:00"^^xsd:string ] ;
+    ext:contractor [ brick:value "Staff_Quarter_Block_S"^^xsd:string ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
+            brick:value 32.85 ] .
+
+pvsystem:S_H_Ho_Sports_Hall a brick:PV_Generation_System ;
+    brick:coordinates [ brick:latitude 22.28 ;
+            brick:longitude 114.17 ] ;
+    brick:hasLocation [ brick:value "S_H_Ho_Sports_Hall_Building"^^xsd:string ] ;
+    brick:hasPart pvsystem:S_H_Ho_Sports_Hall_Inverter_1,
+        pvsystem:S_H_Ho_Sports_Hall_Inverter_2 ;
+    ext:altitude [ brick:hasUnit unit:M ;
+            brick:value 96.0 ] ;
+    ext:connectionDate [ brick:value "2021-10-02 00:00:00"^^xsd:string ] ;
+    ext:contractor [ brick:value "Solaredge"^^xsd:string ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
+            brick:value 42.0 ] .
+
+pvsystem:Shaw_Auditorium a brick:PV_Generation_System ;
+    brick:coordinates [ brick:latitude 22.2 ;
+            brick:longitude 114.15 ] ;
+    brick:hasLocation [ brick:value "Shaw_Auditorium_Building"^^xsd:string ] ;
+    brick:hasPart pvsystem:Shaw_Auditorium_Inverter ;
+    ext:altitude [ brick:hasUnit unit:M ;
+            brick:value 135.0 ] ;
+    ext:connectionDate [ brick:value "2023-07-29T00:00:00"^^xsd:string ] ;
+    ext:contractor [ brick:value "Shaw_Auditorium_Building"^^xsd:string ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
+            brick:value 88.48 ] .
+
+pvsystem:Tower_A a brick:PV_Generation_System ;
+    brick:coordinates [ brick:latitude 22.3 ;
+            brick:longitude 114.17 ] ;
+    brick:hasLocation [ brick:value "University_Apartments_Tower_A"^^xsd:string ],
+        [ brick:value "Staff_Quarter_Tower_8"^^xsd:string ] ;
+    brick:hasPart pvsystem:Tower_A_Inverter ;
+    ext:altitude [ brick:hasUnit unit:M ;
+            brick:value 124.0 ] ;
+    ext:connectionDate [ brick:value "2020-12-01T00:00:00"^^xsd:string ] ;
+    ext:contractor [ brick:value "University_Apartments_Tower_A"^^xsd:string ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
+            brick:value 40.29 ] .
+
+pvsystem:UG_Hall2_2F a brick:PV_Generation_System ;
+    brick:coordinates [ brick:latitude 22.41 ;
+            brick:longitude 114.21 ] ;
+    brick:hasLocation [ brick:value "Undergraduate_Hall_II"^^xsd:string ] ;
+    brick:hasPart pvsystem:UG_Hall2_2F_Inverter ;
+    ext:altitude [ brick:hasUnit unit:M ;
+            brick:value 25.0 ] ;
+    ext:connectionDate [ brick:value "2021-06-01T00:00:00"^^xsd:string ] ;
+    ext:contractor [ brick:value "Undergraduate_Hall_II"^^xsd:string ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
+            brick:value 23.4 ] .
+
+pvsystem:UG_Hall2_RF a brick:PV_Generation_System ;
+    brick:coordinates [ brick:latitude 22.41 ;
+            brick:longitude 114.21 ] ;
+    brick:hasLocation [ brick:value "Undergraduate_Hall_II"^^xsd:string ] ;
+    brick:hasPart pvsystem:UG_Hall2_RF_Inverter ;
+    ext:altitude [ brick:hasUnit unit:M ;
+            brick:value 22.0 ] ;
+    ext:connectionDate [ brick:value "2021-04-30T00:00:00"^^xsd:string ] ;
+    ext:contractor [ brick:value "Undergraduate_Hall_II"^^xsd:string ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
+            brick:value 8.0 ] .
+
+pvsystem:UG_Hall3 a brick:PV_Generation_System ;
+    brick:coordinates [ brick:latitude 22.41 ;
+            brick:longitude 114.21 ] ;
+    brick:hasLocation [ brick:value "Undergraduate_Hall_III"^^xsd:string ] ;
+    brick:hasPart pvsystem:UG_Hall3_Inverter ;
+    ext:altitude [ brick:hasUnit unit:M ;
+            brick:value 38.0 ] ;
+    ext:connectionDate [ brick:value "2021-06-01T00:00:00"^^xsd:string ] ;
+    ext:contractor [ brick:value "Undergraduate_Hall_III"^^xsd:string ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
+            brick:value 25.0 ] .
+
+pvsystem:UG_Hall4 a brick:PV_Generation_System ;
+    brick:coordinates [ brick:latitude 22.41 ;
+            brick:longitude 114.21 ] ;
+    brick:hasLocation [ brick:value "Undergraduate_Hall_IV"^^xsd:string ] ;
+    brick:hasPart pvsystem:UG_Hall4_Inverter ;
+    ext:altitude [ brick:hasUnit unit:M ;
+            brick:value 19.0 ] ;
+    ext:connectionDate [ brick:value "2021-06-01T00:00:00"^^xsd:string ] ;
+    ext:contractor [ brick:value "Undergraduate_Hall_IV"^^xsd:string ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
+            brick:value 32.76 ] .
+
+pvsystem:UG_Hall4_Flexible_PV a brick:PV_Generation_System ;
+    brick:coordinates [ brick:latitude 22.41 ;
+            brick:longitude 114.21 ] ;
+    brick:hasLocation [ brick:value "Undergraduate_Hall_IV"^^xsd:string ] ;
+    brick:hasPart pvsystem:UG_Hall4_Flexible_PV_Inverter ;
+    ext:altitude [ brick:hasUnit unit:M ;
+            brick:value 19.0 ] ;
+    ext:connectionDate [ brick:value "2021-06-01T00:00:00"^^xsd:string ] ;
+    ext:contractor [ brick:value "Undergraduate_Hall_IV"^^xsd:string ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
+            brick:value 19.84 ] .
+
+pvsystem:UG_Hall6 a brick:PV_Generation_System ;
+    brick:coordinates [ brick:latitude 22.41 ;
+            brick:longitude 114.21 ] ;
+    brick:hasLocation [ brick:value "Undergraduate_Hall_VI"^^xsd:string ] ;
+    brick:hasPart pvsystem:UG_Hall6_Inverter ;
+    ext:altitude [ brick:hasUnit unit:M ;
+            brick:value 25.0 ] ;
+    ext:connectionDate [ brick:value "2021-04-30T00:00:00"^^xsd:string ] ;
+    ext:contractor [ brick:value "Undergraduate_Hall_VI"^^xsd:string ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
+            brick:value 25.0 ] .
+
+pvsystem:UG_Hall7 a brick:PV_Generation_System ;
+    brick:coordinates [ brick:latitude 22.41 ;
+            brick:longitude 114.21 ] ;
+    brick:hasLocation [ brick:value "Undergraduate_Hall_VII"^^xsd:string ] ;
+    brick:hasPart pvsystem:UG_Hall7_Inverter ;
+    ext:altitude [ brick:hasUnit unit:M ;
+            brick:value 27.0 ] ;
+    ext:connectionDate [ brick:value "2021-06-01T00:00:00"^^xsd:string ] ;
+    ext:contractor [ brick:value "Undergraduate_Hall_VII"^^xsd:string ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
+            brick:value 31.98 ] .
+
+pvsystem:UG_Hall7_Flexible_PV a brick:PV_Generation_System ;
+    brick:coordinates [ brick:latitude 22.41 ;
+            brick:longitude 114.21 ] ;
+    brick:hasLocation [ brick:value "Undergraduate_Hall_VII"^^xsd:string ] ;
+    brick:hasPart pvsystem:UG_Hall7_Flexible_PV_Inverter ;
+    ext:altitude [ brick:hasUnit unit:M ;
+            brick:value 27.0 ] ;
+    ext:connectionDate [ brick:value "2021-06-01T00:00:00"^^xsd:string ] ;
+    ext:contractor [ brick:value "Undergraduate_Hall_VII"^^xsd:string ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
+            brick:value 5.58 ] .
+
+pvsystem:UG_Hall8 a brick:PV_Generation_System ;
+    brick:coordinates [ brick:latitude 22.28 ;
+            brick:longitude 114.17 ] ;
+    brick:hasLocation [ brick:value "Undergraduate_Hall_VIII"^^xsd:string ] ;
+    brick:hasPart pvsystem:UG_Hall8_Inverter ;
+    ext:altitude [ brick:hasUnit unit:M ;
+            brick:value 34.0 ] ;
+    ext:connectionDate [ brick:value "2023-03-01T00:00:00"^^xsd:string ] ;
+    ext:contractor [ brick:value "Undergraduate_Hall_VIII"^^xsd:string ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
+            brick:value 25.0 ] .
+
+pvsystem:UG_Hall9 a brick:PV_Generation_System ;
+    brick:coordinates [ brick:latitude 22.28 ;
+            brick:longitude 114.17 ] ;
+    brick:hasLocation [ brick:value "Undergraduate_Hall_IX"^^xsd:string ] ;
+    brick:hasPart pvsystem:UG_Hall9_Inverter ;
+    ext:altitude [ brick:hasUnit unit:M ;
+            brick:value 47.0 ] ;
+    ext:connectionDate [ brick:value "2023-03-01T00:00:00"^^xsd:string ] ;
+    ext:contractor [ brick:value "Undergraduate_Hall_IX"^^xsd:string ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
+            brick:value 25.0 ] .
+
+pvsystem:Wong_Check_She_Research_Centre a brick:PV_Generation_System ;
+    brick:coordinates [ brick:latitude 22.28 ;
+            brick:longitude 114.17 ] ;
+    brick:hasLocation [ brick:value "Wong_Check_She_Research_Centre_Building"^^xsd:string ] ;
+    brick:hasPart pvsystem:Wong_Check_She_Research_Centre_Inverter_1,
+        pvsystem:Wong_Check_She_Research_Centre_Inverter_2 ;
+    ext:altitude [ brick:hasUnit unit:M ;
+            brick:value 136.0 ] ;
+    ext:connectionDate [ brick:value "2021-08-31 00:00:00"^^xsd:string ] ;
+    ext:contractor [ brick:value "Solaredge"^^xsd:string ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
+            brick:value 100.0 ] .
+
+pvsystem:Zone_A1 a brick:PV_Generation_System ;
+    brick:coordinates [ brick:latitude 22.41 ;
+            brick:longitude 114.21 ] ;
+    brick:hasLocation [ brick:value "AcademicBuilding"^^xsd:string ] ;
+    brick:hasPart pvsystem:Zone_A1_Inverter ;
+    ext:altitude [ brick:hasUnit unit:M ;
+            brick:value 125.0 ] ;
+    ext:connectionDate [ brick:value "2021-06-01T00:00:00"^^xsd:string ] ;
+    ext:contractor [ brick:value "AcademicBuilding"^^xsd:string ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
+            brick:value 33.3 ] .
+
+pvsystem:Zone_A2 a brick:PV_Generation_System ;
+    brick:coordinates [ brick:latitude 22.28 ;
+            brick:longitude 114.17 ] ;
+    brick:hasLocation [ brick:value "AcademicBuilding"^^xsd:string ] ;
+    brick:hasPart pvsystem:Zone_A2_Inverter_1,
+        pvsystem:Zone_A2_Inverter_2,
+        pvsystem:Zone_A2_Inverter_3 ;
+    ext:altitude [ brick:hasUnit unit:M ;
+            brick:value 125.0 ] ;
+    ext:connectionDate [ brick:value "2023-05-31T00:00:00"^^xsd:string ] ;
+    ext:contractor [ brick:value "Solaredge"^^xsd:string ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
+            brick:value 249.5 ] .
+
+pvsystem:Zone_A4 a brick:PV_Generation_System ;
+    brick:coordinates [ brick:latitude 22.41 ;
+            brick:longitude 114.21 ] ;
+    brick:hasLocation [ brick:value "AcademicBuilding"^^xsd:string ] ;
+    brick:hasPart pvsystem:Zone_A4_Inverter ;
+    ext:altitude [ brick:hasUnit unit:M ;
+            brick:value 125.0 ] ;
+    ext:connectionDate [ brick:value "2021-06-01T00:00:00"^^xsd:string ] ;
+    ext:contractor [ brick:value "AcademicBuilding"^^xsd:string ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
+            brick:value 55.0 ] .
+
+pvsystem:Zone_A5 a brick:PV_Generation_System ;
+    brick:coordinates [ brick:latitude 22.28 ;
+            brick:longitude 114.17 ] ;
+    brick:hasLocation [ brick:value "AcademicBuilding"^^xsd:string ] ;
+    brick:hasPart pvsystem:Zone_A5_Inverter ;
+    ext:altitude [ brick:hasUnit unit:M ;
+            brick:value 125.0 ] ;
+    ext:connectionDate [ brick:value "2021-10-02T00:00:00"^^xsd:string ] ;
+    ext:contractor [ brick:value "AcademicBuilding"^^xsd:string ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
+            brick:value 17.0 ] .
+
+pvsystem:Zone_A6 a brick:PV_Generation_System ;
+    brick:coordinates [ brick:latitude 22.41 ;
+            brick:longitude 114.21 ] ;
+    brick:hasLocation [ brick:value "AcademicBuilding"^^xsd:string ] ;
+    brick:hasPart pvsystem:Zone_A6_Inverter ;
+    ext:altitude [ brick:hasUnit unit:M ;
+            brick:value 125.0 ] ;
+    ext:connectionDate [ brick:value "2021-07-31T00:00:00"^^xsd:string ] ;
+    ext:contractor [ brick:value "AcademicBuilding"^^xsd:string ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
+            brick:value 50.0 ] .
+
+pvsystem:Zone_A7 a brick:PV_Generation_System ;
+    brick:coordinates [ brick:latitude 22.28 ;
+            brick:longitude 114.17 ] ;
+    brick:hasLocation [ brick:value "AcademicBuilding"^^xsd:string ] ;
+    brick:hasPart pvsystem:Zone_A7_Inverter ;
+    ext:altitude [ brick:hasUnit unit:M ;
+            brick:value 125.0 ] ;
+    ext:connectionDate [ brick:value "2021-11-08T00:00:00"^^xsd:string ] ;
+    ext:contractor [ brick:value "AcademicBuilding"^^xsd:string ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
+            brick:value 12.78 ] .
+
+pvsystem:Zone_D a brick:PV_Generation_System ;
+    brick:coordinates [ brick:latitude 22.41 ;
+            brick:longitude 114.21 ] ;
+    brick:hasLocation [ brick:value "AcademicBuilding"^^xsd:string ] ;
+    brick:hasPart pvsystem:Zone_D_Inverter_1,
+        pvsystem:Zone_D_Inverter_2 ;
+    ext:altitude [ brick:hasUnit unit:M ;
+            brick:value 125.0 ] ;
+    ext:connectionDate [ brick:value "2021-12-01T00:00:00"^^xsd:string ] ;
+    ext:contractor [ brick:value "Solaredge"^^xsd:string ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
+            brick:value 68.62 ] .
+
+pvsystem:Zone_J1 a brick:PV_Generation_System ;
+    brick:coordinates [ brick:latitude 22.28 ;
+            brick:longitude 114.17 ] ;
+    brick:hasLocation [ brick:value "AcademicBuilding"^^xsd:string ] ;
+    brick:hasPart pvsystem:Zone_J1_Inverter ;
+    ext:altitude [ brick:hasUnit unit:M ;
+            brick:value 125.0 ] ;
+    ext:connectionDate [ brick:value "2021-11-08T00:00:00"^^xsd:string ] ;
+    ext:contractor [ brick:value "AcademicBuilding"^^xsd:string ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
+            brick:value 25.55 ] .
+
+pvsystem:Zone_J2 a brick:PV_Generation_System ;
+    brick:coordinates [ brick:latitude 22.41 ;
+            brick:longitude 114.21 ] ;
+    brick:hasLocation [ brick:value "AcademicBuilding"^^xsd:string ] ;
+    brick:hasPart pvsystem:Zone_J2_Inverter ;
+    ext:altitude [ brick:hasUnit unit:M ;
+            brick:value 125.0 ] ;
+    ext:connectionDate [ brick:value "2021-12-01T00:00:00"^^xsd:string ] ;
+    ext:contractor [ brick:value "AcademicBuilding"^^xsd:string ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
+            brick:value 50.0 ] .
+
+pvsystem:Zone_L1__Station_1_ a brick:PV_Generation_System ;
+    brick:coordinates [ brick:latitude 22.3 ;
+            brick:longitude 114.17 ] ;
+    brick:hasLocation [ brick:value "Staff_Quarter_Tower_11"^^xsd:string ],
+        [ brick:value "AcademicBuilding"^^xsd:string ] ;
+    brick:hasPart pvsystem:Zone_L1__Station_1__Inverter ;
+    ext:altitude [ brick:hasUnit unit:M ;
+            brick:value 125.0 ] ;
+    ext:connectionDate [ brick:value "2021-01-30T00:00:00"^^xsd:string ] ;
+    ext:contractor [ brick:value "AcademicBuilding"^^xsd:string ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
+            brick:value 25.0 ] .
+
+pvsystem:Zone_L1__Station_2_ a brick:PV_Generation_System ;
+    brick:coordinates [ brick:latitude 22.3 ;
+            brick:longitude 114.17 ] ;
+    brick:hasLocation [ brick:value "AcademicBuilding"^^xsd:string ],
+        [ brick:value "Staff_Quarter_Tower_19"^^xsd:string ] ;
+    brick:hasPart pvsystem:Zone_L1__Station_2__Inverter ;
+    ext:altitude [ brick:hasUnit unit:M ;
+            brick:value 125.0 ] ;
+    ext:connectionDate [ brick:value "2021-01-30T00:00:00"^^xsd:string ] ;
+    ext:contractor [ brick:value "AcademicBuilding"^^xsd:string ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
+            brick:value 25.0 ] .
+
+pvsystem:Zone_L2 a brick:PV_Generation_System ;
+    brick:coordinates [ brick:latitude 22.41 ;
+            brick:longitude 114.21 ] ;
+    brick:hasLocation [ brick:value "AcademicBuilding"^^xsd:string ] ;
+    brick:hasPart pvsystem:Zone_L2_Inverter ;
+    ext:altitude [ brick:hasUnit unit:M ;
+            brick:value 125.0 ] ;
+    ext:connectionDate [ brick:value "2022-07-30T00:00:00"^^xsd:string ] ;
+    ext:contractor [ brick:value "AcademicBuilding"^^xsd:string ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
+            brick:value 10.0 ] .
+
+extsh:AltitudeShape a owl:Class,
+        sh:NodeShape ;
+    rdfs:subClassOf bsh:ValueShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:or bsh:NumericValue ;
+            sh:path brick:value ],
+        [ a sh:PropertyShape ;
+            sh:in ( unit:MicroM unit:IN unit:M unit:KiloM unit:YD unit:CentiM unit:DeciM unit:FT unit:MilliM ) ;
+            sh:minCount 1 ;
+            sh:path brick:hasUnit ] .
+
+extsh:BrandShape a owl:Class,
+        sh:NodeShape ;
+    rdfs:subClassOf bsh:ValueShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path brick:value ] .
+
+extsh:ConnectionDateShape a owl:Class,
+        sh:NodeShape ;
+    rdfs:subClassOf bsh:ValueShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path brick:value ] .
+
+extsh:ContractorShape a owl:Class,
+        sh:NodeShape ;
+    rdfs:subClassOf bsh:ValueShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ] .
+
+extsh:ModuleShape a owl:Class,
+        sh:NodeShape ;
+    rdfs:subClassOf bsh:ValueShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path brick:value ] .
+
+extsh:NumberShape a owl:Class,
+        sh:NodeShape ;
+    rdfs:subClassOf bsh:ValueShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype xsd:integer ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path brick:value ] .
+
+extsh:PanelDegradationFirstYearShape a owl:Class,
+        sh:NodeShape ;
+    rdfs:subClassOf bsh:ValueShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:or bsh:NumericValue ;
+            sh:path brick:value ],
+        [ a sh:PropertyShape ;
+            sh:in ( unit:PERCENT ) ;
+            sh:minCount 1 ;
+            sh:path brick:hasUnit ] .
+
+extsh:PanelLinearDegradationShape a owl:Class,
+        sh:NodeShape ;
+    rdfs:subClassOf bsh:ValueShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:or bsh:NumericValue ;
+            sh:path brick:value ],
+        [ a sh:PropertyShape ;
+            sh:in ( unit:PERCENT ) ;
+            sh:minCount 1 ;
+            sh:path brick:hasUnit ] .
+
+extsh:PanelRatedPowerOutputShape a owl:Class,
+        sh:NodeShape ;
+    rdfs:subClassOf bsh:ValueShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:or bsh:NumericValue ;
+            sh:path brick:value ],
+        [ a sh:PropertyShape ;
+            sh:in ( unit:W ) ;
+            sh:minCount 1 ;
+            sh:path brick:hasUnit ] .
+
+extsh:SpecificTypeShape a owl:Class,
+        sh:NodeShape ;
+    rdfs:subClassOf bsh:ValueShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path brick:value ] .
+
+pvsystem:CYT__Station_1__Inverter a brick:Inverter ;
+    brick:hasPart pvsystem:CYT__Station_1__Module ;
+    ext:brand [ brick:value "SMA"^^xsd:string ] ;
+    ext:module [ brick:value "Sunny_Tripower_25000TL_JP_30"^^xsd:string ] ;
+    ext:number [ brick:value 1 ] .
+
+pvsystem:CYT__Station_1__Module a brick:PV_Panel ;
+    ext:brand [ brick:value "JinkoSolar"^^xsd:string ] ;
+    ext:module [ brick:value "JKM395M_6RL3_V"^^xsd:string ] ;
+    ext:number [ brick:value 77 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 2.5 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.6 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.2069 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 395.0 ] ;
+    ext:specificType [ brick:value "Si_mono_Model"^^xsd:string ] .
+
+pvsystem:CYT__Station_2__Inverter a brick:Inverter ;
+    brick:hasPart pvsystem:CYT__Station_2__Module ;
+    ext:brand [ brick:value "SMA"^^xsd:string ] ;
+    ext:module [ brick:value "Sunny_Tripower_25000TL_JP_30"^^xsd:string ] ;
+    ext:number [ brick:value 1 ] .
+
+pvsystem:CYT__Station_2__Module a brick:PV_Panel ;
+    ext:brand [ brick:value "JinkoSolar"^^xsd:string ] ;
+    ext:module [ brick:value "JKM395M_6RL3_V"^^xsd:string ] ;
+    ext:number [ brick:value 77 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 2.5 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.6 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.2069 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 395.0 ] ;
+    ext:specificType [ brick:value "Si_mono_Model"^^xsd:string ] .
+
+pvsystem:Indoor_Sport_Center_Inverter a brick:Inverter ;
+    brick:hasPart pvsystem:Indoor_Sport_Center_Module ;
+    ext:brand [ brick:value "SMA"^^xsd:string ] ;
+    ext:module [ brick:value "Sunny_Tripower_STP_10_0"^^xsd:string ] ;
+    ext:number [ brick:value 1 ] .
+
+pvsystem:Indoor_Sport_Center_Module a brick:PV_Panel ;
+    ext:brand [ brick:value "JinkoSolar"^^xsd:string ] ;
+    ext:module [ brick:value "JKM365N_6TL3"^^xsd:string ] ;
+    ext:number [ brick:value 120 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 1.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.4 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.2096 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 365.0 ] ;
+    ext:specificType [ brick:value "Si_mono_Model"^^xsd:string ] .
+
+pvsystem:LSK_North_Inverter a brick:Inverter ;
+    brick:hasPart pvsystem:LSK_North_Module ;
+    ext:brand [ brick:value "SolarEdge"^^xsd:string ] ;
+    ext:module [ brick:value "SolarEdge_SE55K"^^xsd:string ] ;
+    ext:number [ brick:value 1 ] .
+
+pvsystem:LSK_North_Module a brick:PV_Panel ;
+    ext:brand [ brick:value "JinkoSolar"^^xsd:string ] ;
+    ext:module [ brick:value "JKM390M_6RL3_TV"^^xsd:string ] ;
+    ext:number [ brick:value 170 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 2.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.44999999999999996 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.2012 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 390.0 ] ;
+    ext:specificType [ brick:value "Si_mono_Model"^^xsd:string ] .
+
+pvsystem:LSK_South_Inverter a brick:Inverter ;
+    brick:hasPart pvsystem:LSK_South_Module ;
+    ext:brand [ brick:value "SolarEdge"^^xsd:string ] ;
+    ext:module [ brick:value "SolarEdge_SE25K"^^xsd:string ] ;
+    ext:number [ brick:value 1 ] .
+
+pvsystem:LSK_South_Module a brick:PV_Panel ;
+    ext:brand [ brick:value "JinkoSolar"^^xsd:string ] ;
+    ext:module [ brick:value "JKM390M_6RL3_TV"^^xsd:string ] ;
+    ext:number [ brick:value 72 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 2.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.44999999999999996 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.2012 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 390.0 ] ;
+    ext:specificType [ brick:value "Si_mono_Model"^^xsd:string ] .
+
+pvsystem:Library_Inverter_1 a brick:Inverter ;
+    brick:hasPart pvsystem:Library_Inverter_1_Module ;
+    ext:brand [ brick:value "SolarEdge"^^xsd:string ] ;
+    ext:module [ brick:value "SolarEdge SE50K"^^xsd:string ] ;
+    ext:number [ brick:value 1 ] .
+
+pvsystem:Library_Inverter_1_Module a brick:PV_Panel ;
+    ext:brand [ brick:value "JinkoSolar"^^xsd:string ] ;
+    ext:module [ brick:value "JKM370N_6TL3"^^xsd:string ] ;
+    ext:number [ brick:value 156 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 1.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.4 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.21 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 370.0 ] ;
+    ext:specificType [ brick:value "Si_mono_Model"^^xsd:string ] .
+
+pvsystem:Library_Inverter_2 a brick:Inverter ;
+    brick:hasPart pvsystem:Library_Inverter_2_Module ;
+    ext:brand [ brick:value "SolarEdge"^^xsd:string ] ;
+    ext:module [ brick:value "SolarEdge SE50K"^^xsd:string ] ;
+    ext:number [ brick:value 1 ] .
+
+pvsystem:Library_Inverter_2_Module a brick:PV_Panel ;
+    ext:brand [ brick:value "JinkoSolar"^^xsd:string ] ;
+    ext:module [ brick:value "JKM370N_6TL3"^^xsd:string ] ;
+    ext:number [ brick:value 152 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 1.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.4 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.21 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 370.0 ] ;
+    ext:specificType [ brick:value "Si_mono_Model"^^xsd:string ] .
+
+pvsystem:Library_Inverter_3 a brick:Inverter ;
+    brick:hasPart pvsystem:Library_Inverter_3_Module ;
+    ext:brand [ brick:value "SolarEdge"^^xsd:string ] ;
+    ext:module [ brick:value "SolarEdge SE50K"^^xsd:string ] ;
+    ext:number [ brick:value 1 ] .
+
+pvsystem:Library_Inverter_3_Module a brick:PV_Panel ;
+    ext:brand [ brick:value "JinkoSolar"^^xsd:string ] ;
+    ext:module [ brick:value "JKM370N_6TL3"^^xsd:string ] ;
+    ext:number [ brick:value 152 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 1.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.4 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.21 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 370.0 ] ;
+    ext:specificType [ brick:value "Si_mono_Model"^^xsd:string ] .
+
+pvsystem:SQ10_Inverter a brick:Inverter ;
+    brick:hasPart pvsystem:SQ10_Module ;
+    ext:brand [ brick:value "SMA"^^xsd:string ] ;
+    ext:module [ brick:value "Sunny_Tripower_Core1_STP_50_40_"^^xsd:string ] ;
+    ext:number [ brick:value 1 ] .
+
+pvsystem:SQ10_Module a brick:PV_Panel ;
+    ext:brand [ brick:value "JinkoSolar"^^xsd:string ] ;
+    ext:module [ brick:value "JKM390M_6RL3_TV"^^xsd:string ] ;
+    ext:number [ brick:value 78 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 2.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.44999999999999996 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.2012 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 390.0 ] ;
+    ext:specificType [ brick:value "Si_mono_Model"^^xsd:string ] .
+
+pvsystem:SQ11_Module_1 a brick:PV_Panel ;
+    ext:brand [ brick:value "JinkoSolar"^^xsd:string ] ;
+    ext:module [ brick:value "JKM390M_6RL3_TV"^^xsd:string ] ;
+    ext:number [ brick:value 77 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 2.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.44999999999999996 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.2012 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 390.0 ] ;
+    ext:specificType [ brick:value "Si_mono_Model"^^xsd:string ] .
+
+pvsystem:SQ11_Module_2 a brick:PV_Panel ;
+    ext:brand [ brick:value "Sunman"^^xsd:string ] ;
+    ext:module [ brick:value "SMF310M_6X10UW"^^xsd:string ] ;
+    ext:number [ brick:value 8 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 3.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.6799999999999999 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.184 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 310.0 ] ;
+    ext:specificType [ brick:value "Thin_film_Model"^^xsd:string ] .
+
+pvsystem:SQ12_Module_1 a brick:PV_Panel ;
+    ext:brand [ brick:value "JinkoSolar"^^xsd:string ] ;
+    ext:module [ brick:value "JKM390M_6RL3_TV"^^xsd:string ] ;
+    ext:number [ brick:value 76 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 2.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.44999999999999996 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.2012 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 390.0 ] ;
+    ext:specificType [ brick:value "Si_mono_Model"^^xsd:string ] .
+
+pvsystem:SQ12_Module_2 a brick:PV_Panel ;
+    ext:brand [ brick:value "Sunman"^^xsd:string ] ;
+    ext:module [ brick:value "SMF310M_6X10UW"^^xsd:string ] ;
+    ext:number [ brick:value 8 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 3.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.6799999999999999 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.184 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 310.0 ] ;
+    ext:specificType [ brick:value "Thin_film_Model"^^xsd:string ] .
+
+pvsystem:SQ13_Inverter a brick:Inverter ;
+    brick:hasPart pvsystem:SQ13_Module ;
+    ext:brand [ brick:value "SMA"^^xsd:string ] ;
+    ext:module [ brick:value "Sunny_Tripower_Core1_STP_50_40_"^^xsd:string ] ;
+    ext:number [ brick:value 1 ] .
+
+pvsystem:SQ13_Module a brick:PV_Panel ;
+    ext:brand [ brick:value "JinkoSolar"^^xsd:string ] ;
+    ext:module [ brick:value "JKM390M_6RL3_TV"^^xsd:string ] ;
+    ext:number [ brick:value 73 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 2.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.44999999999999996 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.2012 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 390.0 ] ;
+    ext:specificType [ brick:value "Si_mono_Model"^^xsd:string ] .
+
+pvsystem:SQ14_Module_1 a brick:PV_Panel ;
+    ext:brand [ brick:value "JinkoSolar"^^xsd:string ] ;
+    ext:module [ brick:value "JKM390M_6RL3_TV"^^xsd:string ] ;
+    ext:number [ brick:value 78 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 2.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.44999999999999996 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.2012 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 390.0 ] ;
+    ext:specificType [ brick:value "Si_mono_Model"^^xsd:string ] .
+
+pvsystem:SQ14_Module_2 a brick:PV_Panel ;
+    ext:brand [ brick:value "Sunman"^^xsd:string ] ;
+    ext:module [ brick:value "SMF310M_6X10UW"^^xsd:string ] ;
+    ext:number [ brick:value 8 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 3.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.6799999999999999 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.184 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 310.0 ] ;
+    ext:specificType [ brick:value "Thin_film_Model"^^xsd:string ] .
+
+pvsystem:SQ15_Module_1 a brick:PV_Panel ;
+    ext:brand [ brick:value "JinkoSolar"^^xsd:string ] ;
+    ext:module [ brick:value "JKM390M_6RL3_TV"^^xsd:string ] ;
+    ext:number [ brick:value 79 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 2.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.44999999999999996 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.2012 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 390.0 ] ;
+    ext:specificType [ brick:value "Si_mono_Model"^^xsd:string ] .
+
+pvsystem:SQ15_Module_2 a brick:PV_Panel ;
+    ext:brand [ brick:value "Sunman"^^xsd:string ] ;
+    ext:module [ brick:value "SMF310M_6X10UW"^^xsd:string ] ;
+    ext:number [ brick:value 8 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 3.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.6799999999999999 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.184 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 310.0 ] ;
+    ext:specificType [ brick:value "Thin_film_Model"^^xsd:string ] .
+
+pvsystem:SQ16_Inverter a brick:Inverter ;
+    brick:hasPart pvsystem:SQ16_Module ;
+    ext:brand [ brick:value "SMA"^^xsd:string ] ;
+    ext:module [ brick:value "Sunny_Tripower_Core1_STP_50_40_"^^xsd:string ] ;
+    ext:number [ brick:value 1 ] .
+
+pvsystem:SQ16_Module a brick:PV_Panel ;
+    ext:brand [ brick:value "JinkoSolar"^^xsd:string ] ;
+    ext:module [ brick:value "JKM390M_6RL3_TV"^^xsd:string ] ;
+    ext:number [ brick:value 85 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 2.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.44999999999999996 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.2012 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 390.0 ] ;
+    ext:specificType [ brick:value "Si_mono_Model"^^xsd:string ] .
+
+pvsystem:SQ17_Inverter a brick:Inverter ;
+    brick:hasPart pvsystem:SQ17_Module ;
+    ext:brand [ brick:value "SMA"^^xsd:string ] ;
+    ext:module [ brick:value "Sunny_Tripower_Core1_STP_50_40_"^^xsd:string ] ;
+    ext:number [ brick:value 1 ] .
+
+pvsystem:SQ17_Module a brick:PV_Panel ;
+    ext:brand [ brick:value "JinkoSolar"^^xsd:string ] ;
+    ext:module [ brick:value "JKM390M_6RL3_TV"^^xsd:string ] ;
+    ext:number [ brick:value 95 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 2.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.44999999999999996 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.2012 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 390.0 ] ;
+    ext:specificType [ brick:value "Si_mono_Model"^^xsd:string ] .
+
+pvsystem:SQ18_Inverter a brick:Inverter ;
+    brick:hasPart pvsystem:SQ18_Module ;
+    ext:brand [ brick:value "SMA"^^xsd:string ] ;
+    ext:module [ brick:value "Sunny_Tripower_Core1_STP_50_40_"^^xsd:string ] ;
+    ext:number [ brick:value 1 ] .
+
+pvsystem:SQ18_Module a brick:PV_Panel ;
+    ext:brand [ brick:value "JinkoSolar"^^xsd:string ] ;
+    ext:module [ brick:value "JKM390M_6RL3_TV"^^xsd:string ] ;
+    ext:number [ brick:value 87 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 2.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.44999999999999996 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.2012 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 390.0 ] ;
+    ext:specificType [ brick:value "Si_mono_Model"^^xsd:string ] .
+
+pvsystem:SQ19_Module_1 a brick:PV_Panel ;
+    ext:brand [ brick:value "JinkoSolar"^^xsd:string ] ;
+    ext:module [ brick:value "JKM390M_6RL3_TV"^^xsd:string ] ;
+    ext:number [ brick:value 79 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 2.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.44999999999999996 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.2012 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 390.0 ] ;
+    ext:specificType [ brick:value "Si_mono_Model"^^xsd:string ] .
+
+pvsystem:SQ19_Module_2 a brick:PV_Panel ;
+    ext:brand [ brick:value "Sunman"^^xsd:string ] ;
+    ext:module [ brick:value "SMF310M_6X10UW"^^xsd:string ] ;
+    ext:number [ brick:value 8 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 3.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.6799999999999999 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.184 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 310.0 ] ;
+    ext:specificType [ brick:value "Thin_film_Model"^^xsd:string ] .
+
+pvsystem:SQ1_Inverter a brick:Inverter ;
+    brick:hasPart pvsystem:SQ1_Module ;
+    ext:brand [ brick:value "SolarEdge"^^xsd:string ] ;
+    ext:module [ brick:value "SolarEdge_SE27_6K"^^xsd:string ] ;
+    ext:number [ brick:value 1 ] .
+
+pvsystem:SQ1_Module a brick:PV_Panel ;
+    ext:brand [ brick:value "JinkoSolar"^^xsd:string ] ;
+    ext:module [ brick:value "JKM390M_6RL3_TV"^^xsd:string ] ;
+    ext:number [ brick:value 88 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 2.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.44999999999999996 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.2012 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 390.0 ] ;
+    ext:specificType [ brick:value "Si_mono_Model"^^xsd:string ] .
+
+pvsystem:SQ2_Inverter a brick:Inverter ;
+    brick:hasPart pvsystem:SQ2_Module ;
+    ext:brand [ brick:value "SolarEdge"^^xsd:string ] ;
+    ext:module [ brick:value "SolarEdge_SE33_3K"^^xsd:string ] ;
+    ext:number [ brick:value 1 ] .
+
+pvsystem:SQ2_Module a brick:PV_Panel ;
+    ext:brand [ brick:value "JinkoSolar"^^xsd:string ] ;
+    ext:module [ brick:value "JKM390M_6RL3_TV"^^xsd:string ] ;
+    ext:number [ brick:value 86 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 2.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.44999999999999996 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.2012 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 390.0 ] ;
+    ext:specificType [ brick:value "Si_mono_Model"^^xsd:string ] .
+
+pvsystem:SQ3_Inverter a brick:Inverter ;
+    brick:hasPart pvsystem:SQ3_Module ;
+    ext:brand [ brick:value "SolarEdge"^^xsd:string ] ;
+    ext:module [ brick:value "SolarEdge_SE33_3K"^^xsd:string ] ;
+    ext:number [ brick:value 1 ] .
+
+pvsystem:SQ3_Module a brick:PV_Panel ;
+    ext:brand [ brick:value "JinkoSolar"^^xsd:string ] ;
+    ext:module [ brick:value "JKM390M_6RL3_TV"^^xsd:string ] ;
+    ext:number [ brick:value 92 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 2.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.44999999999999996 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.2012 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 390.0 ] ;
+    ext:specificType [ brick:value "Si_mono_Model"^^xsd:string ] .
+
+pvsystem:SQ4_Inverter a brick:Inverter ;
+    brick:hasPart pvsystem:SQ4_Module ;
+    ext:brand [ brick:value "SolarEdge"^^xsd:string ] ;
+    ext:module [ brick:value "SolarEdge_SE33_3K"^^xsd:string ] ;
+    ext:number [ brick:value 1 ] .
+
+pvsystem:SQ4_Module a brick:PV_Panel ;
+    ext:brand [ brick:value "JinkoSolar"^^xsd:string ] ;
+    ext:module [ brick:value "JKM390M_6RL3_TV"^^xsd:string ] ;
+    ext:number [ brick:value 91 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 2.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.44999999999999996 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.2012 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 390.0 ] ;
+    ext:specificType [ brick:value "Si_mono_Model"^^xsd:string ] .
+
+pvsystem:SQ567_Flexible_PV_Inverter a brick:Inverter ;
+    brick:hasPart pvsystem:SQ567_Flexible_PV_Module ;
+    ext:brand [ brick:value "SMA"^^xsd:string ] ;
+    ext:module [ brick:value "Sunny_Tripower_STP_10_0"^^xsd:string ] ;
+    ext:number [ brick:value 1 ] .
+
+pvsystem:SQ567_Flexible_PV_Module a brick:PV_Panel ;
+    ext:brand [ brick:value "Sunman"^^xsd:string ] ;
+    ext:module [ brick:value "SMF310M_6X10UW"^^xsd:string ] ;
+    ext:number [ brick:value 36 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 3.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.6799999999999999 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.184 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 310.0 ] ;
+    ext:specificType [ brick:value "Thin_film_Model"^^xsd:string ] .
+
+pvsystem:SQ567_Inverter a brick:Inverter ;
+    brick:hasPart pvsystem:SQ567_Module ;
+    ext:brand [ brick:value "SolarEdge"^^xsd:string ] ;
+    ext:module [ brick:value "SolarEdge_SE55K"^^xsd:string ] ;
+    ext:number [ brick:value 1 ] .
+
+pvsystem:SQ567_Module a brick:PV_Panel ;
+    ext:brand [ brick:value "JinkoSolar"^^xsd:string ] ;
+    ext:module [ brick:value "JKM390M_6RL3_TV"^^xsd:string ] ;
+    ext:number [ brick:value 123 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 2.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.44999999999999996 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.2012 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 390.0 ] ;
+    ext:specificType [ brick:value "Si_mono_Model"^^xsd:string ] .
+
+pvsystem:SQ8_Module_1 a brick:PV_Panel ;
+    ext:brand [ brick:value "JinkoSolar"^^xsd:string ] ;
+    ext:module [ brick:value "JKM390M_6RL3_TV"^^xsd:string ] ;
+    ext:number [ brick:value 77 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 2.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.44999999999999996 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.2012 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 390.0 ] ;
+    ext:specificType [ brick:value "Si_mono_Model"^^xsd:string ] .
+
+pvsystem:SQ8_Module_2 a brick:PV_Panel ;
+    ext:brand [ brick:value "Sunman"^^xsd:string ] ;
+    ext:module [ brick:value "SMF310M_6X10UW"^^xsd:string ] ;
+    ext:number [ brick:value 8 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 3.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.6799999999999999 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.184 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 310.0 ] ;
+    ext:specificType [ brick:value "Thin_film_Model"^^xsd:string ] .
+
+pvsystem:SQ9_Inverter a brick:Inverter ;
+    brick:hasPart pvsystem:SQ9_Module ;
+    ext:brand [ brick:value "SMA"^^xsd:string ] ;
+    ext:module [ brick:value "Sunny_Tripower_Core1_STP_50_40_"^^xsd:string ] ;
+    ext:number [ brick:value 1 ] .
+
+pvsystem:SQ9_Module a brick:PV_Panel ;
+    ext:brand [ brick:value "JinkoSolar"^^xsd:string ] ;
+    ext:module [ brick:value "JKM390M_6RL3_TV"^^xsd:string ] ;
+    ext:number [ brick:value 79 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 2.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.44999999999999996 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.2012 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 390.0 ] ;
+    ext:specificType [ brick:value "Si_mono_Model"^^xsd:string ] .
+
+pvsystem:SQ_Apartment13_24_Inverter a brick:Inverter ;
+    brick:hasPart pvsystem:SQ_Apartment13_24_Module ;
+    ext:brand [ brick:value "SolarEdge"^^xsd:string ] ;
+    ext:module [ brick:value "SolarEdge_SE17K"^^xsd:string ] ;
+    ext:number [ brick:value 1 ] .
+
+pvsystem:SQ_Apartment13_24_Module a brick:PV_Panel ;
+    ext:brand [ brick:value "JinkoSolar"^^xsd:string ] ;
+    ext:module [ brick:value "JKM390M_6RL3_TV"^^xsd:string ] ;
+    ext:number [ brick:value 56 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 2.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.44999999999999996 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.2012 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 390.0 ] ;
+    ext:specificType [ brick:value "Si_mono_Model"^^xsd:string ] .
+
+pvsystem:SQ_Apartment1_12_Inverter a brick:Inverter ;
+    brick:hasPart pvsystem:SQ_Apartment1_12_Module ;
+    ext:brand [ brick:value "SolarEdge"^^xsd:string ] ;
+    ext:module [ brick:value "SolarEdge_SE17K"^^xsd:string ] ;
+    ext:number [ brick:value 1 ] .
+
+pvsystem:SQ_Apartment1_12_Module a brick:PV_Panel ;
+    ext:brand [ brick:value "JinkoSolar"^^xsd:string ] ;
+    ext:module [ brick:value "JKM390M_6RL3_TV"^^xsd:string ] ;
+    ext:number [ brick:value 56 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 2.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.44999999999999996 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.2012 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 390.0 ] ;
+    ext:specificType [ brick:value "Si_mono_Model"^^xsd:string ] .
+
+pvsystem:SQ_Apartment25_36_Inverter a brick:Inverter ;
+    brick:hasPart pvsystem:SQ_Apartment25_36_Module ;
+    ext:brand [ brick:value "SolarEdge"^^xsd:string ] ;
+    ext:module [ brick:value "SolarEdge_SE17K"^^xsd:string ] ;
+    ext:number [ brick:value 1 ] .
+
+pvsystem:SQ_Apartment25_36_Module a brick:PV_Panel ;
+    ext:brand [ brick:value "JinkoSolar"^^xsd:string ] ;
+    ext:module [ brick:value "JKM390M_6RL3_TV"^^xsd:string ] ;
+    ext:number [ brick:value 56 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 2.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.44999999999999996 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.2012 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 390.0 ] ;
+    ext:specificType [ brick:value "Si_mono_Model"^^xsd:string ] .
+
+pvsystem:SQ_Apartment37_48_Flexible_PV_Inverter a brick:Inverter ;
+    brick:hasPart pvsystem:SQ_Apartment37_48_Flexible_PV_Module ;
+    ext:brand [ brick:value "SMA"^^xsd:string ] ;
+    ext:module [ brick:value "Sunny_Tripower_STP5_0_3AV_40"^^xsd:string ] ;
+    ext:number [ brick:value 1 ] .
+
+pvsystem:SQ_Apartment37_48_Flexible_PV_Module a brick:PV_Panel ;
+    ext:brand [ brick:value "Sunman"^^xsd:string ] ;
+    ext:module [ brick:value "SMF310M_6X10UW"^^xsd:string ] ;
+    ext:number [ brick:value 12 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 3.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.6799999999999999 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.184 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 310.0 ] ;
+    ext:specificType [ brick:value "Si_mono_Model"^^xsd:string ] .
+
+pvsystem:SQ_Apartment37_48_Inverter a brick:Inverter ;
+    brick:hasPart pvsystem:SQ_Apartment37_48_Module ;
+    ext:brand [ brick:value "SolarEdge"^^xsd:string ] ;
+    ext:module [ brick:value "SolarEdge_SE12_5K"^^xsd:string ] ;
+    ext:number [ brick:value 1 ] .
+
+pvsystem:SQ_Apartment37_48_Module a brick:PV_Panel ;
+    ext:brand [ brick:value "JinkoSolar"^^xsd:string ] ;
+    ext:module [ brick:value "JKM390M_6RL3_TV"^^xsd:string ] ;
+    ext:number [ brick:value 38 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 2.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.44999999999999996 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.2012 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 390.0 ] ;
+    ext:specificType [ brick:value "Si_mono_Model"^^xsd:string ] .
+
+pvsystem:SQ_Block_P_Inverter a brick:Inverter ;
+    brick:hasPart pvsystem:SQ_Block_P_Module ;
+    ext:brand [ brick:value "SolarEdge"^^xsd:string ] ;
+    ext:module [ brick:value "SolarEdge_SE33_3K"^^xsd:string ] ;
+    ext:number [ brick:value 1 ] .
+
+pvsystem:SQ_Block_P_Module a brick:PV_Panel ;
+    ext:brand [ brick:value "JinkoSolar"^^xsd:string ] ;
+    ext:module [ brick:value "JKM395M_6RL3_V"^^xsd:string ] ;
+    ext:number [ brick:value 94 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 1.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.4 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.2096 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 395.0 ] ;
+    ext:specificType [ brick:value "Si_mono_Model"^^xsd:string ] .
+
+pvsystem:SQ_Block_Q_Inverter a brick:Inverter ;
+    brick:hasPart pvsystem:SQ_Block_Q_Module ;
+    ext:brand [ brick:value "SMA"^^xsd:string ] ;
+    ext:module [ brick:value "Sunny_Tripower_20000TL_30"^^xsd:string ] ;
+    ext:number [ brick:value 1 ] .
+
+pvsystem:SQ_Block_Q_Module a brick:PV_Panel ;
+    ext:brand [ brick:value "JinkoSolar"^^xsd:string ] ;
+    ext:module [ brick:value "JKM365N_6TL3_V"^^xsd:string ] ;
+    ext:number [ brick:value 72 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 1.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.4 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.2096 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 365.0 ] ;
+    ext:specificType [ brick:value "Si_mono_Model"^^xsd:string ] .
+
+pvsystem:SQ_Block_Q__Phrase_2__Inverter a brick:Inverter ;
+    brick:hasPart pvsystem:SQ_Block_Q__Phrase_2__Module ;
+    ext:brand [ brick:value "SMA"^^xsd:string ] ;
+    ext:module [ brick:value "Sunny_Tripower_STP_10_0"^^xsd:string ] ;
+    ext:number [ brick:value 1 ] .
+
+pvsystem:SQ_Block_Q__Phrase_2__Module a brick:PV_Panel ;
+    ext:brand [ brick:value "JinkoSolar"^^xsd:string ] ;
+    ext:module [ brick:value "JKM365N_6TL3_V"^^xsd:string ] ;
+    ext:number [ brick:value 28 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 1.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.4 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.2096 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 365.0 ] ;
+    ext:specificType [ brick:value "Si_mono_Model"^^xsd:string ] .
+
+pvsystem:SQ_Block_R_Inverter a brick:Inverter ;
+    brick:hasPart pvsystem:SQ_Block_R_Module ;
+    ext:brand [ brick:value "SolarEdge"^^xsd:string ] ;
+    ext:module [ brick:value "SolarEdge_SE33_3K"^^xsd:string ] ;
+    ext:number [ brick:value 1 ] .
+
+pvsystem:SQ_Block_R_Module a brick:PV_Panel ;
+    ext:brand [ brick:value "JinkoSolar"^^xsd:string ] ;
+    ext:module [ brick:value "JKM365N_6TL3_V"^^xsd:string ] ;
+    ext:number [ brick:value 104 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 1.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.4 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.2096 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 365.0 ] ;
+    ext:specificType [ brick:value "Si_mono_Model"^^xsd:string ] .
+
+pvsystem:SQ_Block_S_Inverter a brick:Inverter ;
+    brick:hasPart pvsystem:SQ_Block_S_Module ;
+    ext:brand [ brick:value "SolarEdge"^^xsd:string ] ;
+    ext:module [ brick:value "SolarEdge_SE33_3K"^^xsd:string ] ;
+    ext:number [ brick:value 1 ] .
+
+pvsystem:SQ_Block_S_Module a brick:PV_Panel ;
+    ext:brand [ brick:value "JinkoSolar"^^xsd:string ] ;
+    ext:module [ brick:value "JKM365N_6TL3_V"^^xsd:string ] ;
+    ext:number [ brick:value 90 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 1.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.4 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.2096 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 365.0 ] ;
+    ext:specificType [ brick:value "Si_mono_Model"^^xsd:string ] .
+
+pvsystem:S_H_Ho_Sports_Hall_Inverter_1 a brick:Inverter ;
+    brick:hasPart pvsystem:S_H_Ho_Sports_Hall_Inverter_1_Module ;
+    ext:brand [ brick:value "SolarEdge"^^xsd:string ] ;
+    ext:module [ brick:value "SolarEdge SE17K"^^xsd:string ] ;
+    ext:number [ brick:value 1 ] .
+
+pvsystem:S_H_Ho_Sports_Hall_Inverter_1_Module a brick:PV_Panel ;
+    ext:brand [ brick:value "JinkoSolar"^^xsd:string ] ;
+    ext:module [ brick:value "JKM390M_6RL3_TV"^^xsd:string ] ;
+    ext:number [ brick:value 56 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 2.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.45 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.2 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 390.0 ] ;
+    ext:specificType [ brick:value "Si_mono_Model"^^xsd:string ] .
+
+pvsystem:S_H_Ho_Sports_Hall_Inverter_2 a brick:Inverter ;
+    brick:hasPart pvsystem:S_H_Ho_Sports_Hall_Inverter_2_Module ;
+    ext:brand [ brick:value "SolarEdge"^^xsd:string ] ;
+    ext:module [ brick:value "SolarEdge SE25K"^^xsd:string ] ;
+    ext:number [ brick:value 1 ] .
+
+pvsystem:S_H_Ho_Sports_Hall_Inverter_2_Module a brick:PV_Panel ;
+    ext:brand [ brick:value "JinkoSolar"^^xsd:string ] ;
+    ext:module [ brick:value "JKM390M_6RL3_TV"^^xsd:string ] ;
+    ext:number [ brick:value 70 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 2.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.45 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.2 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 390.0 ] ;
+    ext:specificType [ brick:value "Si_mono_Model"^^xsd:string ] .
+
+pvsystem:Shaw_Auditorium_Inverter a brick:Inverter ;
+    brick:hasPart pvsystem:Shaw_Auditorium_Module ;
+    ext:brand [ brick:value "SolarEdge"^^xsd:string ] ;
+    ext:module [ brick:value "SolarEdge_SE66_6K"^^xsd:string ] ;
+    ext:number [ brick:value 1 ] .
+
+pvsystem:Shaw_Auditorium_Module a brick:PV_Panel ;
+    ext:brand [ brick:value "JinkoSolar"^^xsd:string ] ;
+    ext:module [ brick:value "JKM395M_6RL3_V"^^xsd:string ] ;
+    ext:number [ brick:value 224 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 1.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.4 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.2096 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 395.0 ] ;
+    ext:specificType [ brick:value "Si_mono_Model"^^xsd:string ] .
+
+pvsystem:Tower_A_Inverter a brick:Inverter ;
+    brick:hasPart pvsystem:Tower_A_Module ;
+    ext:brand [ brick:value "SMA"^^xsd:string ] ;
+    ext:module [ brick:value "Sunny_Tripower_Core1_STP_50_40_"^^xsd:string ] ;
+    ext:number [ brick:value 1 ] .
+
+pvsystem:Tower_A_Module a brick:PV_Panel ;
+    ext:brand [ brick:value "JinkoSolar"^^xsd:string ] ;
+    ext:module [ brick:value "JKM395M_6RL3_V"^^xsd:string ] ;
+    ext:number [ brick:value 102 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 2.5 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.6 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.2069 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 395.0 ] ;
+    ext:specificType [ brick:value "Si_mono_Model"^^xsd:string ] .
+
+pvsystem:UG_Hall2_2F_Inverter a brick:Inverter ;
+    brick:hasPart pvsystem:UG_Hall2_2F_Module ;
+    ext:brand [ brick:value "SolarEdge"^^xsd:string ] ;
+    ext:module [ brick:value "SolarEdge_SE25K"^^xsd:string ] ;
+    ext:number [ brick:value 1 ] .
+
+pvsystem:UG_Hall2_2F_Module a brick:PV_Panel ;
+    ext:brand [ brick:value "JinkoSolar"^^xsd:string ] ;
+    ext:module [ brick:value "JKM390M_6RL3_TV"^^xsd:string ] ;
+    ext:number [ brick:value 60 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 2.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.44999999999999996 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.2012 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 390.0 ] ;
+    ext:specificType [ brick:value "Si_mono_Model"^^xsd:string ] .
+
+pvsystem:UG_Hall2_RF_Inverter a brick:Inverter ;
+    brick:hasPart pvsystem:UG_Hall2_RF_Module ;
+    ext:brand [ brick:value "SolarEdge"^^xsd:string ] ;
+    ext:module [ brick:value "SolarEdge_SE8K"^^xsd:string ] ;
+    ext:number [ brick:value 1 ] .
+
+pvsystem:UG_Hall2_RF_Module a brick:PV_Panel ;
+    ext:brand [ brick:value "JinkoSolar"^^xsd:string ] ;
+    ext:module [ brick:value "JKM390M_6RL3_TV"^^xsd:string ] ;
+    ext:number [ brick:value 26 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 2.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.44999999999999996 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.2012 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 390.0 ] ;
+    ext:specificType [ brick:value "Si_mono_Model"^^xsd:string ] .
+
+pvsystem:UG_Hall3_Inverter a brick:Inverter ;
+    brick:hasPart pvsystem:UG_Hall3_Module ;
+    ext:brand [ brick:value "SolarEdge"^^xsd:string ] ;
+    ext:module [ brick:value "SolarEdge_SE25K"^^xsd:string ] ;
+    ext:number [ brick:value 1 ] .
+
+pvsystem:UG_Hall3_Module a brick:PV_Panel ;
+    ext:brand [ brick:value "JinkoSolar"^^xsd:string ] ;
+    ext:module [ brick:value "JKM390M_6RL3_TV"^^xsd:string ] ;
+    ext:number [ brick:value 70 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 2.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.44999999999999996 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.2012 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 390.0 ] ;
+    ext:specificType [ brick:value "Si_mono_Model"^^xsd:string ] .
+
+pvsystem:UG_Hall4_Flexible_PV_Inverter a brick:Inverter ;
+    brick:hasPart pvsystem:UG_Hall4_Flexible_PV_Module ;
+    ext:brand [ brick:value "SMA"^^xsd:string ] ;
+    ext:module [ brick:value "Sunny_Tripower_15000TL_30"^^xsd:string ] ;
+    ext:number [ brick:value 1 ] .
+
+pvsystem:UG_Hall4_Flexible_PV_Module a brick:PV_Panel ;
+    ext:brand [ brick:value "Sunman"^^xsd:string ] ;
+    ext:module [ brick:value "SMF310M_6X10UW"^^xsd:string ] ;
+    ext:number [ brick:value 64 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 3.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.6799999999999999 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.184 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 310.0 ] ;
+    ext:specificType [ brick:value "Thin_film_Model"^^xsd:string ] .
+
+pvsystem:UG_Hall4_Inverter a brick:Inverter ;
+    brick:hasPart pvsystem:UG_Hall4_Module ;
+    ext:brand [ brick:value "SolarEdge"^^xsd:string ] ;
+    ext:module [ brick:value "SolarEdge_SE25K"^^xsd:string ] ;
+    ext:number [ brick:value 1 ] .
+
+pvsystem:UG_Hall4_Module a brick:PV_Panel ;
+    ext:brand [ brick:value "JinkoSolar"^^xsd:string ] ;
+    ext:module [ brick:value "JKM390M_6RL3_TV"^^xsd:string ] ;
+    ext:number [ brick:value 84 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 2.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.44999999999999996 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.2012 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 390.0 ] ;
+    ext:specificType [ brick:value "Si_mono_Model"^^xsd:string ] .
+
+pvsystem:UG_Hall6_Inverter a brick:Inverter ;
+    brick:hasPart pvsystem:UG_Hall6_Module ;
+    ext:brand [ brick:value "SolarEdge"^^xsd:string ] ;
+    ext:module [ brick:value "SolarEdge_SE25K"^^xsd:string ] ;
+    ext:number [ brick:value 1 ] .
+
+pvsystem:UG_Hall6_Module a brick:PV_Panel ;
+    ext:brand [ brick:value "JinkoSolar"^^xsd:string ] ;
+    ext:module [ brick:value "JKM390M_6RL3_TV"^^xsd:string ] ;
+    ext:number [ brick:value 78 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 2.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.44999999999999996 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.2012 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 390.0 ] ;
+    ext:specificType [ brick:value "Si_mono_Model"^^xsd:string ] .
+
+pvsystem:UG_Hall7_Flexible_PV_Inverter a brick:Inverter ;
+    brick:hasPart pvsystem:UG_Hall7_Flexible_PV_Module ;
+    ext:brand [ brick:value "SMA"^^xsd:string ] ;
+    ext:module [ brick:value "Sunny_Tripower_STP5_0_3AV_40"^^xsd:string ] ;
+    ext:number [ brick:value 1 ] .
+
+pvsystem:UG_Hall7_Flexible_PV_Module a brick:PV_Panel ;
+    ext:brand [ brick:value "Sunman"^^xsd:string ] ;
+    ext:module [ brick:value "SMF310M_6X10UW"^^xsd:string ] ;
+    ext:number [ brick:value 18 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 3.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.6799999999999999 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.184 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 310.0 ] ;
+    ext:specificType [ brick:value "Thin_film_Model"^^xsd:string ] .
+
+pvsystem:UG_Hall7_Inverter a brick:Inverter ;
+    brick:hasPart pvsystem:UG_Hall7_Module ;
+    ext:brand [ brick:value "SolarEdge"^^xsd:string ] ;
+    ext:module [ brick:value "SolarEdge_SE25K"^^xsd:string ] ;
+    ext:number [ brick:value 1 ] .
+
+pvsystem:UG_Hall7_Module a brick:PV_Panel ;
+    ext:brand [ brick:value "JinkoSolar"^^xsd:string ] ;
+    ext:module [ brick:value "JKM390M_6RL3_TV"^^xsd:string ] ;
+    ext:number [ brick:value 82 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 2.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.44999999999999996 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.2012 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 390.0 ] ;
+    ext:specificType [ brick:value "Si_mono_Model"^^xsd:string ] .
+
+pvsystem:UG_Hall8_Inverter a brick:Inverter ;
+    brick:hasPart pvsystem:UG_Hall8_Module ;
+    ext:brand [ brick:value "SolarEdge"^^xsd:string ] ;
+    ext:module [ brick:value "SolarEdge_SE25K"^^xsd:string ] ;
+    ext:number [ brick:value 1 ] .
+
+pvsystem:UG_Hall8_Module a brick:PV_Panel ;
+    ext:brand [ brick:value "JinkoSolar"^^xsd:string ] ;
+    ext:module [ brick:value "JKM390M_6RL3_TV"^^xsd:string ] ;
+    ext:number [ brick:value 66 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 2.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.44999999999999996 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.2012 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 390.0 ] ;
+    ext:specificType [ brick:value "Si_mono_Model"^^xsd:string ] .
+
+pvsystem:UG_Hall9_Inverter a brick:Inverter ;
+    brick:hasPart pvsystem:UG_Hall9_Module ;
+    ext:brand [ brick:value "SolarEdge"^^xsd:string ] ;
+    ext:module [ brick:value "SolarEdge_SE25K"^^xsd:string ] ;
+    ext:number [ brick:value 1 ] .
+
+pvsystem:UG_Hall9_Module a brick:PV_Panel ;
+    ext:brand [ brick:value "JinkoSolar"^^xsd:string ] ;
+    ext:module [ brick:value "JKM415N_6RL3_V"^^xsd:string ] ;
+    ext:number [ brick:value 65 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 1.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.4 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.2096 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 415.0 ] ;
+    ext:specificType [ brick:value "Si_mono_Model"^^xsd:string ] .
+
+pvsystem:UST_SQ11_Inverter a brick:Inverter ;
+    brick:hasPart pvsystem:SQ11_Module_1,
+        pvsystem:SQ11_Module_2 ;
+    ext:brand [ brick:value "SMA"^^xsd:string ] ;
+    ext:number [ brick:value 1 ] .
+
+pvsystem:UST_SQ12_Inverter a brick:Inverter ;
+    brick:hasPart pvsystem:SQ12_Module_1,
+        pvsystem:SQ12_Module_2 ;
+    ext:brand [ brick:value "SMA"^^xsd:string ] ;
+    ext:number [ brick:value 1 ] .
+
+pvsystem:UST_SQ14_Inverter a brick:Inverter ;
+    brick:hasPart pvsystem:SQ14_Module_1,
+        pvsystem:SQ14_Module_2 ;
+    ext:brand [ brick:value "SMA"^^xsd:string ] ;
+    ext:number [ brick:value 1 ] .
+
+pvsystem:UST_SQ15_Inverter a brick:Inverter ;
+    brick:hasPart pvsystem:SQ15_Module_1,
+        pvsystem:SQ15_Module_2 ;
+    ext:brand [ brick:value "SMA"^^xsd:string ] ;
+    ext:number [ brick:value 1 ] .
+
+pvsystem:UST_SQ19_Inverter a brick:Inverter ;
+    brick:hasPart pvsystem:SQ19_Module_1,
+        pvsystem:SQ19_Module_2 ;
+    ext:brand [ brick:value "SMA"^^xsd:string ] ;
+    ext:number [ brick:value 1 ] .
+
+pvsystem:UST_SQ8_Inverter a brick:Inverter ;
+    brick:hasPart pvsystem:SQ8_Module_1,
+        pvsystem:SQ8_Module_2 ;
+    ext:brand [ brick:value "SMA"^^xsd:string ] ;
+    ext:number [ brick:value 1 ] .
+
+pvsystem:Wong_Check_She_Research_Centre_Inverter_1 a brick:Inverter ;
+    brick:hasPart pvsystem:Wong_Check_She_Research_Centre_Inverter_1_Module ;
+    ext:brand [ brick:value "SolarEdge"^^xsd:string ] ;
+    ext:module [ brick:value "SolarEdge SE50K"^^xsd:string ] ;
+    ext:number [ brick:value 1 ] .
+
+pvsystem:Wong_Check_She_Research_Centre_Inverter_1_Module a brick:PV_Panel ;
+    ext:brand [ brick:value "JinkoSolar"^^xsd:string ] ;
+    ext:module [ brick:value "JKM390M_6RL3_TV"^^xsd:string ] ;
+    ext:number [ brick:value 154 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 2.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.45 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.2 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 390.0 ] ;
+    ext:specificType [ brick:value "Si_mono_Model"^^xsd:string ] .
+
+pvsystem:Wong_Check_She_Research_Centre_Inverter_2 a brick:Inverter ;
+    brick:hasPart pvsystem:Wong_Check_She_Research_Centre_Inverter_2_Module ;
+    ext:brand [ brick:value "SolarEdge"^^xsd:string ] ;
+    ext:module [ brick:value "SolarEdge SE50K"^^xsd:string ] ;
+    ext:number [ brick:value 1 ] .
+
+pvsystem:Wong_Check_She_Research_Centre_Inverter_2_Module a brick:PV_Panel ;
+    ext:brand [ brick:value "JinkoSolar"^^xsd:string ] ;
+    ext:module [ brick:value "JKM390M_6RL3_TV"^^xsd:string ] ;
+    ext:number [ brick:value 152 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 2.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.45 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.2 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 390.0 ] ;
+    ext:specificType [ brick:value "Si_mono_Model"^^xsd:string ] .
+
+pvsystem:Zone_A1_Inverter a brick:Inverter ;
+    brick:hasPart pvsystem:Zone_A1_Module ;
+    ext:brand [ brick:value "SolarEdge"^^xsd:string ] ;
+    ext:module [ brick:value "SolarEdge_SE33_3K"^^xsd:string ] ;
+    ext:number [ brick:value 1 ] .
+
+pvsystem:Zone_A1_Module a brick:PV_Panel ;
+    ext:brand [ brick:value "JinkoSolar"^^xsd:string ] ;
+    ext:module [ brick:value "JKM390M_6RL3_TV"^^xsd:string ] ;
+    ext:number [ brick:value 96 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 2.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.44999999999999996 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.2012 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 390.0 ] ;
+    ext:specificType [ brick:value "Si_mono_Model"^^xsd:string ] .
+
+pvsystem:Zone_A2_Inverter_1 a brick:Inverter ;
+    brick:hasPart pvsystem:Zone_A2_Inverter_1_Module_1,
+        pvsystem:Zone_A2_Inverter_1_Module_2 ;
+    ext:brand [ brick:value "SolarEdge"^^xsd:string ] ;
+    ext:module [ brick:value "SolarEdge_SE82_8K_"^^xsd:string ] ;
+    ext:number [ brick:value 1 ] .
+
+pvsystem:Zone_A2_Inverter_1_Module_1 a brick:PV_Panel ;
+    ext:brand [ brick:value "JinkoSolar"^^xsd:string ] ;
+    ext:module [ brick:value "JKM410N_6RL3"^^xsd:string ] ;
+    ext:number [ brick:value 62 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 1.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.4 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.2148 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 415.0 ] ;
+    ext:specificType [ brick:value "Si_mono_Model"^^xsd:string ] .
+
+pvsystem:Zone_A2_Inverter_1_Module_2 a brick:PV_Panel ;
+    ext:brand [ brick:value "JinkoSolar"^^xsd:string ] ;
+    ext:module [ brick:value "JKM390M_6RL3_TV"^^xsd:string ] ;
+    ext:number [ brick:value 220 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 2.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.44999999999999996 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.2012 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 390.0 ] ;
+    ext:specificType [ brick:value "Si_mono_Model"^^xsd:string ] .
+
+pvsystem:Zone_A2_Inverter_2 a brick:Inverter ;
+    brick:hasPart pvsystem:Zone_A2_Inverter_2_Module_1 ;
+    ext:brand [ brick:value "SolarEdge"^^xsd:string ] ;
+    ext:module [ brick:value "SolarEdge_SE55K_"^^xsd:string ] ;
+    ext:number [ brick:value 1 ] .
+
+pvsystem:Zone_A2_Inverter_2_Module_1 a brick:PV_Panel ;
+    ext:brand [ brick:value "JinkoSolar"^^xsd:string ] ;
+    ext:module [ brick:value "JKM410N_6RL3"^^xsd:string ] ;
+    ext:number [ brick:value 176 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 1.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.4 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.2148 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 415.0 ] ;
+    ext:specificType [ brick:value "Si_mono_Model"^^xsd:string ] .
+
+pvsystem:Zone_A2_Inverter_3 a brick:Inverter ;
+    brick:hasPart pvsystem:Zone_A2_Inverter_3_Module_1 ;
+    ext:brand [ brick:value "SolarEdge"^^xsd:string ] ;
+    ext:module [ brick:value "SolarEdge_SE50K_"^^xsd:string ] ;
+    ext:number [ brick:value 1 ] .
+
+pvsystem:Zone_A2_Inverter_3_Module_1 a brick:PV_Panel ;
+    ext:brand [ brick:value "JinkoSolar"^^xsd:string ] ;
+    ext:module [ brick:value "JKM410N_6RL3"^^xsd:string ] ;
+    ext:number [ brick:value 160 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 1.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.4 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.2148 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 415.0 ] ;
+    ext:specificType [ brick:value "Si_mono_Model"^^xsd:string ] .
+
+pvsystem:Zone_A4_Inverter a brick:Inverter ;
+    brick:hasPart pvsystem:Zone_A4_Module ;
+    ext:brand [ brick:value "SolarEdge"^^xsd:string ] ;
+    ext:module [ brick:value "SolarEdge_SE55K"^^xsd:string ] ;
+    ext:number [ brick:value 1 ] .
+
+pvsystem:Zone_A4_Module a brick:PV_Panel ;
+    ext:brand [ brick:value "JinkoSolar"^^xsd:string ] ;
+    ext:module [ brick:value "JKM390M_6RL3_TV"^^xsd:string ] ;
+    ext:number [ brick:value 176 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 2.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.44999999999999996 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.2012 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 390.0 ] ;
+    ext:specificType [ brick:value "Si_mono_Model"^^xsd:string ] .
+
+pvsystem:Zone_A5_Inverter a brick:Inverter ;
+    brick:hasPart pvsystem:Zone_A5_Module ;
+    ext:brand [ brick:value "SolarEdge"^^xsd:string ] ;
+    ext:module [ brick:value "SolarEdge_SE17K"^^xsd:string ] ;
+    ext:number [ brick:value 1 ] .
+
+pvsystem:Zone_A5_Module a brick:PV_Panel ;
+    ext:brand [ brick:value "JinkoSolar"^^xsd:string ] ;
+    ext:module [ brick:value "JKM390M_6RL3_TV"^^xsd:string ] ;
+    ext:number [ brick:value 52 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 2.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.44999999999999996 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.2012 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 390.0 ] ;
+    ext:specificType [ brick:value "Si_mono_Model"^^xsd:string ] .
+
+pvsystem:Zone_A6_Inverter a brick:Inverter ;
+    brick:hasPart pvsystem:Zone_A6_Module ;
+    ext:brand [ brick:value "SolarEdge"^^xsd:string ] ;
+    ext:module [ brick:value "SolarEdge_SE50K"^^xsd:string ] ;
+    ext:number [ brick:value 1 ] .
+
+pvsystem:Zone_A6_Module a brick:PV_Panel ;
+    ext:brand [ brick:value "JinkoSolar"^^xsd:string ] ;
+    ext:module [ brick:value "JKM390M_6RL3_TV"^^xsd:string ] ;
+    ext:number [ brick:value 166 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 2.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.44999999999999996 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.2012 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 390.0 ] ;
+    ext:specificType [ brick:value "Si_mono_Model"^^xsd:string ] .
+
+pvsystem:Zone_A7_Inverter a brick:Inverter ;
+    brick:hasPart pvsystem:Zone_A7_Module ;
+    ext:brand [ brick:value "SolarEdge"^^xsd:string ] ;
+    ext:module [ brick:value "SolarEdge_SE10K"^^xsd:string ] ;
+    ext:number [ brick:value 1 ] .
+
+pvsystem:Zone_A7_Module a brick:PV_Panel ;
+    ext:brand [ brick:value "JinkoSolar"^^xsd:string ] ;
+    ext:module [ brick:value "JKM365N_6TL3_V"^^xsd:string ] ;
+    ext:number [ brick:value 35 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 1.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.4 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.2096 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 365.0 ] ;
+    ext:specificType [ brick:value "Si_mono_Model"^^xsd:string ] .
+
+pvsystem:Zone_D_Inverter_1 a brick:Inverter ;
+    brick:hasPart pvsystem:Zone_D_Inverter_1_Module ;
+    ext:brand [ brick:value "SolarEdge"^^xsd:string ] ;
+    ext:module [ brick:value "SolarEdge_SE33_3K"^^xsd:string ] ;
+    ext:number [ brick:value 1 ] .
+
+pvsystem:Zone_D_Inverter_1_Module a brick:PV_Panel ;
+    ext:brand [ brick:value "JinkoSolar"^^xsd:string ] ;
+    ext:module [ brick:value "JKM365N_6TL3_V"^^xsd:string ] ;
+    ext:number [ brick:value 188 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 1.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.4 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.2096 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 365.0 ] ;
+    ext:specificType [ brick:value "Si_mono_Model"^^xsd:string ] .
+
+pvsystem:Zone_D_Inverter_2 a brick:Inverter ;
+    brick:hasPart pvsystem:Zone_D_Inverter_2_Module ;
+    ext:brand [ brick:value "SolarEdge"^^xsd:string ] ;
+    ext:module [ brick:value "SolarEdge_SE25K"^^xsd:string ] ;
+    ext:number [ brick:value 1 ] .
+
+pvsystem:Zone_D_Inverter_2_Module a brick:PV_Panel ;
+    ext:brand [ brick:value "JinkoSolar"^^xsd:string ] ;
+    ext:module [ brick:value "JKM390M_6RL3_TV"^^xsd:string ] ;
+    ext:number [ brick:value 66 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 2.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.44999999999999996 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.2012 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 390.0 ] ;
+    ext:specificType [ brick:value "Si_mono_Model"^^xsd:string ] .
+
+pvsystem:Zone_J1_Inverter a brick:Inverter ;
+    brick:hasPart pvsystem:Zone_J1_Module ;
+    ext:brand [ brick:value "SolarEdge"^^xsd:string ] ;
+    ext:module [ brick:value "SolarEdge_SE25K"^^xsd:string ] ;
+    ext:number [ brick:value 1 ] .
+
+pvsystem:Zone_J1_Module a brick:PV_Panel ;
+    ext:brand [ brick:value "JinkoSolar"^^xsd:string ] ;
+    ext:module [ brick:value "JKM365N_6TL3_V"^^xsd:string ] ;
+    ext:number [ brick:value 70 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 1.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.4 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.2096 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 365.0 ] ;
+    ext:specificType [ brick:value "Si_mono_Model"^^xsd:string ] .
+
+pvsystem:Zone_J2_Inverter a brick:Inverter ;
+    brick:hasPart pvsystem:Zone_J2_Module ;
+    ext:brand [ brick:value "SolarEdge"^^xsd:string ] ;
+    ext:module [ brick:value "SolarEdge_SE50K"^^xsd:string ] ;
+    ext:number [ brick:value 1 ] .
+
+pvsystem:Zone_J2_Module a brick:PV_Panel ;
+    ext:brand [ brick:value "JinkoSolar"^^xsd:string ] ;
+    ext:module [ brick:value "JKM365N_6TL3_V"^^xsd:string ] ;
+    ext:number [ brick:value 175 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 1.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.4 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.2096 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 365.0 ] ;
+    ext:specificType [ brick:value "Si_mono_Model"^^xsd:string ] .
+
+pvsystem:Zone_L1__Station_1__Inverter a brick:Inverter ;
+    brick:hasPart pvsystem:Zone_L1__Station_1__Module ;
+    ext:brand [ brick:value "SMA"^^xsd:string ] ;
+    ext:module [ brick:value "Sunny_Tripower_25000TL_30"^^xsd:string ] ;
+    ext:number [ brick:value 1 ] .
+
+pvsystem:Zone_L1__Station_1__Module a brick:PV_Panel ;
+    ext:brand [ brick:value "JinkoSolar"^^xsd:string ] ;
+    ext:module [ brick:value "JKM395M_6RL3_V"^^xsd:string ] ;
+    ext:number [ brick:value 75 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 2.5 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.6 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.2069 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 395.0 ] ;
+    ext:specificType [ brick:value "Si_mono_Model"^^xsd:string ] .
+
+pvsystem:Zone_L1__Station_2__Inverter a brick:Inverter ;
+    brick:hasPart pvsystem:Zone_L1__Station_2__Module ;
+    ext:brand [ brick:value "SMA"^^xsd:string ] ;
+    ext:module [ brick:value "Sunny_Tripower_25000TL_30"^^xsd:string ] ;
+    ext:number [ brick:value 1 ] .
+
+pvsystem:Zone_L1__Station_2__Module a brick:PV_Panel ;
+    ext:brand [ brick:value "JinkoSolar"^^xsd:string ] ;
+    ext:module [ brick:value "JKM395M_6RL3_V"^^xsd:string ] ;
+    ext:number [ brick:value 75 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 2.5 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.6 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.2069 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 395.0 ] ;
+    ext:specificType [ brick:value "Si_mono_Model"^^xsd:string ] .
+
+pvsystem:Zone_L2_Inverter a brick:Inverter ;
+    brick:hasPart pvsystem:Zone_L2_Module ;
+    ext:brand [ brick:value "SolarEdge"^^xsd:string ] ;
+    ext:module [ brick:value "SolarEdge_SE10K"^^xsd:string ] ;
+    ext:number [ brick:value 1 ] .
+
+pvsystem:Zone_L2_Module a brick:PV_Panel ;
+    ext:brand [ brick:value "JinkoSolar"^^xsd:string ] ;
+    ext:module [ brick:value "JKM365N_6TL3"^^xsd:string ] ;
+    ext:number [ brick:value 33 ] ;
+    ext:panelDegradationFirstYear [ brick:hasUnit unit:PERCENT ;
+            brick:value 1.0 ] ;
+    ext:panelLinearDegradation [ brick:hasUnit unit:PERCENT ;
+            brick:value 0.4 ] ;
+    ext:ratedModuleConversionEfficiency [ brick:value 0.2096 ] ;
+    ext:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 365.0 ] ;
+    ext:specificType [ brick:value "Si_mono_Model"^^xsd:string ] .
+
