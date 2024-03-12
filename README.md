@@ -12,9 +12,6 @@ The detailed Brick model is stored in .ttl file format. Here we provide a Python
 ### Accessing brick model in turtle (.ttl) file
 Read in the Brick schema model in turtle (.ttl) format
 
-### Accessing brick model in turtle (.ttl) file
-Read in the Brick schema model in turtle (.ttl) format
-
 ### Inquiring overall information of power stations
 * Number of PV stations included
 * Types of PV inverter
