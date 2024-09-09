@@ -33,7 +33,7 @@ ext:contractor a brick:EntityProperty ;
 
 ext:locationProp a brick:EntityProperty ;
     rdfs:label "Location Property" ;
-    rdfs:range extsh:locationPropShape ;
+    rdfs:range extsh:LocationPropShape ;
     skos:definition "A semantic property used to link resources to their geographical location or address." .
 
 ext:module a brick:EntityProperty ;
@@ -66,7 +66,35 @@ ext:specificType a brick:EntityProperty ;
     rdfs:range extsh:SpecificTypeShape ;
     skos:definition "A specific type is a particular kind of thing." .
 
+ext:azimuth a brick:EntityProperty ;
+    rdfs:label "Azimuth" ;
+    rdfs:range extsh:AzimuthShape ;
+    skos:definition "The azimuth angle of a PV module is the horizontal angle measured counterclockwise from true north to the direction the module faces, where true south is 0°, true east is -90°, and true west is 90°." .
+
+ext:tiltAngle a brick:EntityProperty ;
+    rdfs:label "Tilt Angle" ;
+    rdfs:range extsh:TiltAngleShape  ;
+    skos:definition "The tilt angle of a PV module is the angle between the panel's surface and the horizontal plane, indicating how steeply the panel is inclined." .
+
 extsh:LocationPropShape a owl:Class,
+        sh:NodeShape ;
+    rdfs:subClassOf bsh:ValueShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path brick:value ] .
+
+extsh:AzimuthShape a owl:Class,
+        sh:NodeShape ;
+    rdfs:subClassOf bsh:ValueShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path brick:value ] .
+
+extsh:TiltAngleShape a owl:Class,
         sh:NodeShape ;
     rdfs:subClassOf bsh:ValueShape ;
     sh:property [ a sh:PropertyShape ;
@@ -78,28 +106,31 @@ extsh:LocationPropShape a owl:Class,
 pvsystem:CYT__Station_1_ a brick:PV_Generation_System ;
     brick:coordinates [ brick:latitude 22.3 ;
             brick:longitude 114.17 ] ;
-    brick:hasLocation [ brick:value "Staff_Quarter_Tower_12"^^xsd:string ],
-        [ brick:value "Cheng_Yu_Tung_Building"^^xsd:string ] ;
+    brick:hasLocation   [ brick:value "Cheng_Yu_Tung_Building"^^xsd:string ] ;
     brick:hasPart pvsystem:CYT__Station_1__Inverter ;
     ext:altitude [ brick:hasUnit unit:M ;
             brick:value 132.0 ] ;
     ext:connectionDate [ brick:value "2021-01-30T00:00:00"^^xsd:string ] ;
-    ext:contractor [ brick:value "Cheng_Yu_Tung_Building"^^xsd:string ] ;
+    ext:contractor [ brick:value "SMA_Solar_Technology"^^xsd:string ] ;
     ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
-            brick:value 25.0 ] .
+            brick:value 25.0 ] ;
+    ext:azimuth [ brick:value "90/-90deg"^^xsd:string ] ;
+    ext:tiltAngle [ brick:value "10deg"^^xsd:string ] .
+
 
 pvsystem:CYT__Station_2_ a brick:PV_Generation_System ;
     brick:coordinates [ brick:latitude 22.3 ;
             brick:longitude 114.17 ] ;
-    brick:hasLocation [ brick:value "Cheng_Yu_Tung_Building"^^xsd:string ],
-        [ brick:value "Staff_Quarter_Tower_14"^^xsd:string ] ;
+    brick:hasLocation [ brick:value "Cheng_Yu_Tung_Building"^^xsd:string ];
     brick:hasPart pvsystem:CYT__Station_2__Inverter ;
     ext:altitude [ brick:hasUnit unit:M ;
             brick:value 132.0 ] ;
     ext:connectionDate [ brick:value "2021-01-30T00:00:00"^^xsd:string ] ;
-    ext:contractor [ brick:value "Cheng_Yu_Tung_Building"^^xsd:string ] ;
+    ext:contractor [ brick:value "SMA_Solar_Technology"^^xsd:string ] ;
     ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
-            brick:value 25.0 ] .
+            brick:value 25.0 ] ;
+    ext:azimuth [ brick:value "90/-90deg"^^xsd:string ] ;
+    ext:tiltAngle [ brick:value "10deg"^^xsd:string ] .
 
 pvsystem:Indoor_Sport_Center a brick:PV_Generation_System ;
     brick:coordinates [ brick:latitude 22.28 ;
@@ -109,9 +140,11 @@ pvsystem:Indoor_Sport_Center a brick:PV_Generation_System ;
     ext:altitude [ brick:hasUnit unit:M ;
             brick:value 3.0 ] ;
     ext:connectionDate [ brick:value "2021-12-01T00:00:00"^^xsd:string ] ;
-    ext:contractor [ brick:value "Indoor_Sport_Centre_Building"^^xsd:string ] ;
+    ext:contractor [ brick:value "SolarEdge"^^xsd:string ] ;
     ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
-            brick:value 33.3 ] .
+            brick:value 33.3 ] ;
+    ext:azimuth [ brick:value "0/180deg"^^xsd:string ] ;
+    ext:tiltAngle [ brick:value "10deg"^^xsd:string ] .
 
 pvsystem:LSK_North a brick:PV_Generation_System ;
     brick:coordinates [ brick:latitude 22.33 ;
@@ -121,9 +154,11 @@ pvsystem:LSK_North a brick:PV_Generation_System ;
     ext:altitude [ brick:hasUnit unit:M ;
             brick:value 142.0 ] ;
     ext:connectionDate [ brick:value "2021-04-30T00:00:00"^^xsd:string ] ;
-    ext:contractor [ brick:value "Lee_Shau_Kee_Business_Building"^^xsd:string ] ;
+    ext:contractor [ brick:value "SolarEdge"^^xsd:string ] ;
     ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
-            brick:value 55.0 ] .
+            brick:value 55.0 ] ;
+    ext:azimuth [ brick:value "10/-153deg"^^xsd:string ] ;
+    ext:tiltAngle [ brick:value "10deg"^^xsd:string ] .
 
 pvsystem:LSK_South a brick:PV_Generation_System ;
     brick:coordinates [ brick:latitude 22.33 ;
@@ -133,9 +168,11 @@ pvsystem:LSK_South a brick:PV_Generation_System ;
     ext:altitude [ brick:hasUnit unit:M ;
             brick:value 152.0 ] ;
     ext:connectionDate [ brick:value "2021-04-30T00:00:00"^^xsd:string ] ;
-    ext:contractor [ brick:value "Lee_Shau_Kee_Business_Building"^^xsd:string ] ;
+    ext:contractor [ brick:value "SolarEdge"^^xsd:string ] ;
     ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
-            brick:value 25.0 ] .
+            brick:value 25.0 ] ;
+    ext:azimuth [ brick:value "0deg"^^xsd:string ] ;
+    ext:tiltAngle [ brick:value "0deg"^^xsd:string ] .
 
 pvsystem:Library a brick:PV_Generation_System ;
     brick:coordinates [ brick:latitude 22.28 ;
@@ -147,9 +184,11 @@ pvsystem:Library a brick:PV_Generation_System ;
     ext:altitude [ brick:hasUnit unit:M ;
             brick:value 87.0 ] ;
     ext:connectionDate [ brick:value "2022-05-31 00:00:00"^^xsd:string ] ;
-    ext:contractor [ brick:value "Solaredge"^^xsd:string ] ;
+    ext:contractor [ brick:value "SolarEdge"^^xsd:string ] ;
     ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
-            brick:value 170.2 ] .
+            brick:value 170.2 ] ;
+    ext:azimuth [ brick:value "Mixed"^^xsd:string ] ;
+    ext:tiltAngle [ brick:value "10deg"^^xsd:string ] .
 
 pvsystem:SQ1 a brick:PV_Generation_System ;
     brick:coordinates [ brick:latitude 22.33 ;
@@ -159,9 +198,11 @@ pvsystem:SQ1 a brick:PV_Generation_System ;
     ext:altitude [ brick:hasUnit unit:M ;
             brick:value 94.0 ] ;
     ext:connectionDate [ brick:value "2021-04-30T00:00:00"^^xsd:string ] ;
-    ext:contractor [ brick:value "Staff_Quarter_Tower_1"^^xsd:string ] ;
+    ext:contractor [ brick:value "SolarEdge"^^xsd:string ] ;
     ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
-            brick:value 27.6 ] .
+            brick:value 27.6 ] ;
+    ext:azimuth [ brick:value "0deg"^^xsd:string ] ;
+    ext:tiltAngle [ brick:value "0deg"^^xsd:string ] .
 
 pvsystem:SQ10 a brick:PV_Generation_System ;
     brick:coordinates [ brick:latitude 22.3 ;
@@ -171,9 +212,11 @@ pvsystem:SQ10 a brick:PV_Generation_System ;
     ext:altitude [ brick:hasUnit unit:M ;
             brick:value 124.0 ] ;
     ext:connectionDate [ brick:value "2021-04-30T00:00:00"^^xsd:string ] ;
-    ext:contractor [ brick:value "Staff_Quarter_Tower_10"^^xsd:string ] ;
+    ext:contractor [ brick:value "SMA_Solar_Technology"^^xsd:string ] ;
     ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
-            brick:value 30.4 ] .
+            brick:value 30.4 ] ;
+    ext:azimuth [ brick:value "175/-5deg"^^xsd:string ] ;
+    ext:tiltAngle [ brick:value "10deg"^^xsd:string ] .
 
 pvsystem:SQ11 a brick:PV_Generation_System ;
     brick:coordinates [ brick:latitude 22.3 ;
@@ -182,9 +225,11 @@ pvsystem:SQ11 a brick:PV_Generation_System ;
     ext:altitude [ brick:hasUnit unit:M ;
             brick:value 124.0 ] ;
     ext:connectionDate [ brick:value "2021-04-30T00:00:00"^^xsd:string ] ;
-    ext:contractor [ brick:value "SMA"^^xsd:string ] ;
+    ext:contractor [ brick:value "SMA_Solar_Technology"^^xsd:string ] ;
     ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
-            brick:value 32.51 ] .
+            brick:value 32.51 ] ;
+    ext:azimuth [ brick:value "Mixed"^^xsd:string ] ;
+    ext:tiltAngle [ brick:value "Mixed"^^xsd:string ] .
 
 pvsystem:SQ12 a brick:PV_Generation_System ;
     brick:coordinates [ brick:latitude 22.3 ;
@@ -193,9 +238,11 @@ pvsystem:SQ12 a brick:PV_Generation_System ;
     ext:altitude [ brick:hasUnit unit:M ;
             brick:value 123.0 ] ;
     ext:connectionDate [ brick:value "2021-02-27T00:00:00"^^xsd:string ] ;
-    ext:contractor [ brick:value "SMA"^^xsd:string ] ;
+    ext:contractor [ brick:value "SMA_Solar_Technology"^^xsd:string ] ;
     ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
-            brick:value 32.12 ] .
+            brick:value 32.12 ] ;
+    ext:azimuth [ brick:value "Mixed"^^xsd:string ] ;
+    ext:tiltAngle [ brick:value "Mixed"^^xsd:string ] .
 
 pvsystem:SQ13 a brick:PV_Generation_System ;
     brick:coordinates [ brick:latitude 22.3 ;
@@ -205,9 +252,11 @@ pvsystem:SQ13 a brick:PV_Generation_System ;
     ext:altitude [ brick:hasUnit unit:M ;
             brick:value 125.0 ] ;
     ext:connectionDate [ brick:value "2021-02-27T00:00:00"^^xsd:string ] ;
-    ext:contractor [ brick:value "Staff_Quarter_Tower_13"^^xsd:string ] ;
+    ext:contractor [ brick:value "SMA_Solar_Technology"^^xsd:string ] ;
     ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
-            brick:value 28.47 ] .
+            brick:value 28.47 ] ;
+    ext:azimuth [ brick:value "Mixed"^^xsd:string ] ;
+    ext:tiltAngle [ brick:value "Mixed"^^xsd:string ] .
 
 pvsystem:SQ14 a brick:PV_Generation_System ;
     brick:coordinates [ brick:latitude 22.3 ;
@@ -216,9 +265,11 @@ pvsystem:SQ14 a brick:PV_Generation_System ;
     ext:altitude [ brick:hasUnit unit:M ;
             brick:value 125.0 ] ;
     ext:connectionDate [ brick:value "2021-02-27T00:00:00"^^xsd:string ] ;
-    ext:contractor [ brick:value "SMA"^^xsd:string ] ;
+    ext:contractor [ brick:value "SMA_Solar_Technology"^^xsd:string ] ;
     ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
-            brick:value 32.9 ] .
+            brick:value 32.9 ] ;
+    ext:azimuth [ brick:value "Mixed"^^xsd:string ] ;
+    ext:tiltAngle [ brick:value "Mixed"^^xsd:string ] .
 
 pvsystem:SQ15 a brick:PV_Generation_System ;
     brick:coordinates [ brick:latitude 22.3 ;
@@ -227,9 +278,11 @@ pvsystem:SQ15 a brick:PV_Generation_System ;
     ext:altitude [ brick:hasUnit unit:M ;
             brick:value 123.0 ] ;
     ext:connectionDate [ brick:value "2021-02-27T00:00:00"^^xsd:string ] ;
-    ext:contractor [ brick:value "SMA"^^xsd:string ] ;
+    ext:contractor [ brick:value "SMA_Solar_Technology"^^xsd:string ] ;
     ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
-            brick:value 33.29 ] .
+            brick:value 33.29 ] ;
+    ext:azimuth [ brick:value "Mixed"^^xsd:string ] ;
+    ext:tiltAngle [ brick:value "Mixed"^^xsd:string ] .
 
 pvsystem:SQ16 a brick:PV_Generation_System ;
     brick:coordinates [ brick:latitude 22.3 ;
@@ -239,9 +292,11 @@ pvsystem:SQ16 a brick:PV_Generation_System ;
     ext:altitude [ brick:hasUnit unit:M ;
             brick:value 127.0 ] ;
     ext:connectionDate [ brick:value "2021-02-27T00:00:00"^^xsd:string ] ;
-    ext:contractor [ brick:value "Staff_Quarter_Tower_16"^^xsd:string ] ;
+    ext:contractor [ brick:value "SMA_Solar_Technology"^^xsd:string ] ;
     ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
-            brick:value 33.15 ] .
+            brick:value 33.15 ] ;
+    ext:azimuth [ brick:value "88/-92deg"^^xsd:string ] ;
+    ext:tiltAngle [ brick:value "10deg"^^xsd:string ] .
 
 pvsystem:SQ17 a brick:PV_Generation_System ;
     brick:coordinates [ brick:latitude 22.3 ;
@@ -251,9 +306,11 @@ pvsystem:SQ17 a brick:PV_Generation_System ;
     ext:altitude [ brick:hasUnit unit:M ;
             brick:value 127.0 ] ;
     ext:connectionDate [ brick:value "2021-02-27T00:00:00"^^xsd:string ] ;
-    ext:contractor [ brick:value "Staff_Quarter_Tower_17"^^xsd:string ] ;
+    ext:contractor [ brick:value "SMA_Solar_Technology"^^xsd:string ] ;
     ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
-            brick:value 37.05 ] .
+            brick:value 37.05 ] ;
+    ext:azimuth [ brick:value "88/-92deg"^^xsd:string ] ;
+    ext:tiltAngle [ brick:value "10deg"^^xsd:string ] .
 
 pvsystem:SQ18 a brick:PV_Generation_System ;
     brick:coordinates [ brick:latitude 22.3 ;
@@ -264,9 +321,11 @@ pvsystem:SQ18 a brick:PV_Generation_System ;
     ext:altitude [ brick:hasUnit unit:M ;
             brick:value 125.0 ] ;
     ext:connectionDate [ brick:value "2021-01-30T00:00:00"^^xsd:string ] ;
-    ext:contractor [ brick:value "Staff_Quarter_Tower_18"^^xsd:string ] ;
+    ext:contractor [ brick:value "SMA_Solar_Technology"^^xsd:string ] ;
     ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
-            brick:value 33.93 ] .
+            brick:value 33.93 ] ;
+    ext:azimuth [ brick:value "73/-107deg"^^xsd:string ] ;
+    ext:tiltAngle [ brick:value "10deg"^^xsd:string ] .
 
 pvsystem:SQ19 a brick:PV_Generation_System ;
     brick:coordinates [ brick:latitude 22.3 ;
@@ -275,9 +334,11 @@ pvsystem:SQ19 a brick:PV_Generation_System ;
     ext:altitude [ brick:hasUnit unit:M ;
             brick:value 124.0 ] ;
     ext:connectionDate [ brick:value "2021-01-30T00:00:00"^^xsd:string ] ;
-    ext:contractor [ brick:value "SMA"^^xsd:string ] ;
+    ext:contractor [ brick:value "SMA_Solar_Technology"^^xsd:string ] ;
     ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
-            brick:value 32.51 ] .
+            brick:value 32.51 ] ;
+    ext:azimuth [ brick:value "Mixed"^^xsd:string ] ;
+    ext:tiltAngle [ brick:value "Mixed"^^xsd:string ] . 
 
 pvsystem:SQ2 a brick:PV_Generation_System ;
     brick:coordinates [ brick:latitude 22.33 ;
@@ -287,9 +348,11 @@ pvsystem:SQ2 a brick:PV_Generation_System ;
     ext:altitude [ brick:hasUnit unit:M ;
             brick:value 91.0 ] ;
     ext:connectionDate [ brick:value "2021-04-30T00:00:00"^^xsd:string ] ;
-    ext:contractor [ brick:value "Staff_Quarter_Tower_2"^^xsd:string ] ;
+    ext:contractor [ brick:value "SolarEdge"^^xsd:string ] ;
     ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
-            brick:value 33.3 ] .
+            brick:value 33.3 ] ;
+    ext:azimuth [ brick:value "0deg"^^xsd:string ] ;
+    ext:tiltAngle [ brick:value "0deg"^^xsd:string ] . 
 
 pvsystem:SQ3 a brick:PV_Generation_System ;
     brick:coordinates [ brick:latitude 22.41 ;
@@ -299,9 +362,11 @@ pvsystem:SQ3 a brick:PV_Generation_System ;
     ext:altitude [ brick:hasUnit unit:M ;
             brick:value 79.0 ] ;
     ext:connectionDate [ brick:value "2021-06-01T00:00:00"^^xsd:string ] ;
-    ext:contractor [ brick:value "Staff_Quarter_Tower_3"^^xsd:string ] ;
+    ext:contractor [ brick:value "SolarEdge"^^xsd:string ] ;
     ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
-            brick:value 33.3 ] .
+            brick:value 33.3 ] ;
+    ext:azimuth [ brick:value "0deg"^^xsd:string ] ;
+    ext:tiltAngle [ brick:value "0deg"^^xsd:string ] . 
 
 pvsystem:SQ4 a brick:PV_Generation_System ;
     brick:coordinates [ brick:latitude 22.41 ;
@@ -311,9 +376,11 @@ pvsystem:SQ4 a brick:PV_Generation_System ;
     ext:altitude [ brick:hasUnit unit:M ;
             brick:value 73.0 ] ;
     ext:connectionDate [ brick:value "2021-04-30T00:00:00"^^xsd:string ] ;
-    ext:contractor [ brick:value "Staff_Quarter_Tower_4"^^xsd:string ] ;
+    ext:contractor [ brick:value "SolarEdge"^^xsd:string ] ;
     ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
-            brick:value 33.3 ] .
+            brick:value 33.3 ] ;
+    ext:azimuth [ brick:value "0deg"^^xsd:string ] ;
+    ext:tiltAngle [ brick:value "0deg"^^xsd:string ] . 
 
 pvsystem:SQ567 a brick:PV_Generation_System ;
     brick:coordinates [ brick:latitude 22.41 ;
@@ -323,9 +390,11 @@ pvsystem:SQ567 a brick:PV_Generation_System ;
     ext:altitude [ brick:hasUnit unit:M ;
             brick:value 41.0 ] ;
     ext:connectionDate [ brick:value "2021-06-01T00:00:00"^^xsd:string ] ;
-    ext:contractor [ brick:value "Staff_Quarter_Tower_5_7"^^xsd:string ] ;
+    ext:contractor [ brick:value "SolarEdge"^^xsd:string ] ;
     ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
-            brick:value 47.97 ] .
+            brick:value 47.97 ] ;
+    ext:azimuth [ brick:value "0deg"^^xsd:string ] ;
+    ext:tiltAngle [ brick:value "0deg"^^xsd:string ] . 
 
 pvsystem:SQ567_Flexible_PV a brick:PV_Generation_System ;
     brick:coordinates [ brick:latitude 22.41 ;
@@ -335,9 +404,11 @@ pvsystem:SQ567_Flexible_PV a brick:PV_Generation_System ;
     ext:altitude [ brick:hasUnit unit:M ;
             brick:value 41.0 ] ;
     ext:connectionDate [ brick:value "2021-06-01T00:00:00"^^xsd:string ] ;
-    ext:contractor [ brick:value "Staff_Quarter_Tower_5_7"^^xsd:string ] ;
+    ext:contractor [ brick:value "SMA_Solar_Technology"^^xsd:string ] ;
     ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
-            brick:value 11.16 ] .
+            brick:value 11.16 ] ;
+    ext:azimuth [ brick:value "Mixed"^^xsd:string ] ;
+    ext:tiltAngle [ brick:value "Mixed"^^xsd:string ] . 
 
 pvsystem:SQ8 a brick:PV_Generation_System ;
     brick:coordinates [ brick:latitude 22.3 ;
@@ -346,9 +417,11 @@ pvsystem:SQ8 a brick:PV_Generation_System ;
     ext:altitude [ brick:hasUnit unit:M ;
             brick:value 122.0 ] ;
     ext:connectionDate [ brick:value "2021-02-27T00:00:00"^^xsd:string ] ;
-    ext:contractor [ brick:value "SMA"^^xsd:string ] ;
+    ext:contractor [ brick:value "SMA_Solar_Technology"^^xsd:string ] ;
     ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
-            brick:value 32.51 ] .
+            brick:value 32.51 ] ;
+    ext:azimuth [ brick:value "Mixed"^^xsd:string ] ;
+    ext:tiltAngle [ brick:value "Mixed"^^xsd:string ] . 
 
 pvsystem:SQ9 a brick:PV_Generation_System ;
     brick:coordinates [ brick:latitude 22.3 ;
@@ -358,9 +431,11 @@ pvsystem:SQ9 a brick:PV_Generation_System ;
     ext:altitude [ brick:hasUnit unit:M ;
             brick:value 123.0 ] ;
     ext:connectionDate [ brick:value "2021-02-27T00:00:00"^^xsd:string ] ;
-    ext:contractor [ brick:value "Staff_Quarter_Tower_9"^^xsd:string ] ;
+    ext:contractor [ brick:value "SMA_Solar_Technology"^^xsd:string ] ;
     ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
-            brick:value 30.81 ] .
+            brick:value 30.81 ] ;
+    ext:azimuth [ brick:value "165/-15deg"^^xsd:string ] ;
+    ext:tiltAngle [ brick:value "10deg"^^xsd:string ] . 
 
 pvsystem:SQ_Apartment13_24 a brick:PV_Generation_System ;
     brick:coordinates [ brick:latitude 22.41 ;
@@ -370,9 +445,11 @@ pvsystem:SQ_Apartment13_24 a brick:PV_Generation_System ;
     ext:altitude [ brick:hasUnit unit:M ;
             brick:value 120.0 ] ;
     ext:connectionDate [ brick:value "2021-07-07T00:00:00"^^xsd:string ] ;
-    ext:contractor [ brick:value "Staff_Quarters_Apartments_13_24"^^xsd:string ] ;
+    ext:contractor [ brick:value "SolarEdge"^^xsd:string ] ;
     ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
-            brick:value 17.0 ] .
+            brick:value 17.0 ] ;
+    ext:azimuth [ brick:value "0deg"^^xsd:string ] ;
+    ext:tiltAngle [ brick:value "0deg"^^xsd:string ] . 
 
 pvsystem:SQ_Apartment1_12 a brick:PV_Generation_System ;
     brick:coordinates [ brick:latitude 22.41 ;
@@ -382,9 +459,11 @@ pvsystem:SQ_Apartment1_12 a brick:PV_Generation_System ;
     ext:altitude [ brick:hasUnit unit:M ;
             brick:value 120.0 ] ;
     ext:connectionDate [ brick:value "2021-07-07T00:00:00"^^xsd:string ] ;
-    ext:contractor [ brick:value "Staff_Quarters_Apartments_1_12"^^xsd:string ] ;
+    ext:contractor [ brick:value "SolarEdge"^^xsd:string ] ;
     ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
-            brick:value 17.0 ] .
+            brick:value 17.0 ] ;
+    ext:azimuth [ brick:value "0deg"^^xsd:string ] ;
+    ext:tiltAngle [ brick:value "0deg"^^xsd:string ] . 
 
 pvsystem:SQ_Apartment25_36 a brick:PV_Generation_System ;
     brick:coordinates [ brick:latitude 22.41 ;
@@ -394,9 +473,11 @@ pvsystem:SQ_Apartment25_36 a brick:PV_Generation_System ;
     ext:altitude [ brick:hasUnit unit:M ;
             brick:value 120.0 ] ;
     ext:connectionDate [ brick:value "2021-07-07T00:00:00"^^xsd:string ] ;
-    ext:contractor [ brick:value "Staff_Quarters_Apartments_25_36"^^xsd:string ] ;
+    ext:contractor [ brick:value "SolarEdge"^^xsd:string ] ;
     ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
-            brick:value 17.0 ] .
+            brick:value 17.0 ] ;
+    ext:azimuth [ brick:value "0deg"^^xsd:string ] ;
+    ext:tiltAngle [ brick:value "0deg"^^xsd:string ] . 
 
 pvsystem:SQ_Apartment37_48 a brick:PV_Generation_System ;
     brick:coordinates [ brick:latitude 22.41 ;
@@ -406,9 +487,11 @@ pvsystem:SQ_Apartment37_48 a brick:PV_Generation_System ;
     ext:altitude [ brick:hasUnit unit:M ;
             brick:value 118.0 ] ;
     ext:connectionDate [ brick:value "2021-07-07T00:00:00"^^xsd:string ] ;
-    ext:contractor [ brick:value "Staff_Quarters_Apartments_37_48"^^xsd:string ] ;
+    ext:contractor [ brick:value "SolarEdge"^^xsd:string ] ;
     ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
-            brick:value 16.22 ] .
+            brick:value 16.22 ] ;
+    ext:azimuth [ brick:value "0deg"^^xsd:string ] ;
+    ext:tiltAngle [ brick:value "0deg"^^xsd:string ] . 
 
 pvsystem:SQ_Apartment37_48_Flexible_PV a brick:PV_Generation_System ;
     brick:coordinates [ brick:latitude 22.41 ;
@@ -418,9 +501,11 @@ pvsystem:SQ_Apartment37_48_Flexible_PV a brick:PV_Generation_System ;
     ext:altitude [ brick:hasUnit unit:M ;
             brick:value 118.0 ] ;
     ext:connectionDate [ brick:value "2021-07-07T00:00:00"^^xsd:string ] ;
-    ext:contractor [ brick:value "Staff_Quarters_Apartments_37_48"^^xsd:string ] ;
+    ext:contractor [ brick:value "SMA_Solar_Technology"^^xsd:string ] ;
     ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
-            brick:value 3.72 ] .
+            brick:value 3.72 ] ;
+    ext:azimuth [ brick:value "Mixed"^^xsd:string ] ;
+    ext:tiltAngle [ brick:value "Mixed"^^xsd:string ] .
 
 pvsystem:SQ_Block_P a brick:PV_Generation_System ;
     brick:coordinates [ brick:latitude 22.41 ;
@@ -430,9 +515,11 @@ pvsystem:SQ_Block_P a brick:PV_Generation_System ;
     ext:altitude [ brick:hasUnit unit:M ;
             brick:value 133.0 ] ;
     ext:connectionDate [ brick:value "2023-07-21T00:00:00"^^xsd:string ] ;
-    ext:contractor [ brick:value "Staff_Quarter_Block_P"^^xsd:string ] ;
+    ext:contractor [ brick:value "SolarEdge"^^xsd:string ] ;
     ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
-            brick:value 33.3 ] .
+            brick:value 33.3 ] ;
+    ext:azimuth [ brick:value "0deg"^^xsd:string ] ;
+    ext:tiltAngle [ brick:value "0deg"^^xsd:string ] .
 
 pvsystem:SQ_Block_Q a brick:PV_Generation_System ;
     brick:coordinates [ brick:latitude 22.28 ;
@@ -442,9 +529,11 @@ pvsystem:SQ_Block_Q a brick:PV_Generation_System ;
     ext:altitude [ brick:hasUnit unit:M ;
             brick:value 133.0 ] ;
     ext:connectionDate [ brick:value "2022-08-12T00:00:00"^^xsd:string ] ;
-    ext:contractor [ brick:value "Staff_Quarter_Block_Q"^^xsd:string ] ;
+    ext:contractor [ brick:value "SMA_Solar_Technology"^^xsd:string ] ;
     ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
-            brick:value 26.26 ] .
+            brick:value 26.26 ] ;
+    ext:azimuth [ brick:value "0deg"^^xsd:string ] ;
+    ext:tiltAngle [ brick:value "0deg"^^xsd:string ] .
 
 pvsystem:SQ_Block_Q__Phrase_2_ a brick:PV_Generation_System ;
     brick:coordinates [ brick:latitude 22.28 ;
@@ -454,9 +543,11 @@ pvsystem:SQ_Block_Q__Phrase_2_ a brick:PV_Generation_System ;
     ext:altitude [ brick:hasUnit unit:M ;
             brick:value 133.0 ] ;
     ext:connectionDate [ brick:value "2022-09-23T00:00:00"^^xsd:string ] ;
-    ext:contractor [ brick:value "Staff_Quarter_Block_Q"^^xsd:string ] ;
+    ext:contractor [ brick:value "SMA_Solar_Technology"^^xsd:string ] ;
     ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
-            brick:value 10.3 ] .
+            brick:value 10.3 ] ;
+    ext:azimuth [ brick:value "0deg"^^xsd:string ] ;
+    ext:tiltAngle [ brick:value "0deg"^^xsd:string ] .
 
 pvsystem:SQ_Block_R a brick:PV_Generation_System ;
     brick:coordinates [ brick:latitude 22.28 ;
@@ -466,9 +557,11 @@ pvsystem:SQ_Block_R a brick:PV_Generation_System ;
     ext:altitude [ brick:hasUnit unit:M ;
             brick:value 133.0 ] ;
     ext:connectionDate [ brick:value "2021-08-18T00:00:00"^^xsd:string ] ;
-    ext:contractor [ brick:value "Staff_Quarter_Block_R"^^xsd:string ] ;
+    ext:contractor [ brick:value "SolarEdge"^^xsd:string ] ;
     ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
-            brick:value 33.3 ] .
+            brick:value 33.3 ] ;
+    ext:azimuth [ brick:value "0deg"^^xsd:string ] ;
+    ext:tiltAngle [ brick:value "0deg"^^xsd:string ] .
 
 pvsystem:SQ_Block_S a brick:PV_Generation_System ;
     brick:coordinates [ brick:latitude 22.28 ;
@@ -478,9 +571,11 @@ pvsystem:SQ_Block_S a brick:PV_Generation_System ;
     ext:altitude [ brick:hasUnit unit:M ;
             brick:value 133.0 ] ;
     ext:connectionDate [ brick:value "2021-08-18T00:00:00"^^xsd:string ] ;
-    ext:contractor [ brick:value "Staff_Quarter_Block_S"^^xsd:string ] ;
+    ext:contractor [ brick:value "SolarEdge"^^xsd:string ] ;
     ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
-            brick:value 32.85 ] .
+            brick:value 32.85 ] ;
+    ext:azimuth [ brick:value "0deg"^^xsd:string ] ;
+    ext:tiltAngle [ brick:value "0deg"^^xsd:string ] .
 
 pvsystem:S_H_Ho_Sports_Hall a brick:PV_Generation_System ;
     brick:coordinates [ brick:latitude 22.28 ;
@@ -491,9 +586,11 @@ pvsystem:S_H_Ho_Sports_Hall a brick:PV_Generation_System ;
     ext:altitude [ brick:hasUnit unit:M ;
             brick:value 96.0 ] ;
     ext:connectionDate [ brick:value "2021-10-02 00:00:00"^^xsd:string ] ;
-    ext:contractor [ brick:value "Solaredge"^^xsd:string ] ;
+    ext:contractor [ brick:value "SolarEdge"^^xsd:string ] ;
     ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
-            brick:value 42.0 ] .
+            brick:value 42.0 ] ;
+    ext:azimuth [ brick:value "0deg"^^xsd:string ] ;
+    ext:tiltAngle [ brick:value "0deg"^^xsd:string ] .
 
 pvsystem:Shaw_Auditorium a brick:PV_Generation_System ;
     brick:coordinates [ brick:latitude 22.2 ;
@@ -503,9 +600,11 @@ pvsystem:Shaw_Auditorium a brick:PV_Generation_System ;
     ext:altitude [ brick:hasUnit unit:M ;
             brick:value 135.0 ] ;
     ext:connectionDate [ brick:value "2023-07-29T00:00:00"^^xsd:string ] ;
-    ext:contractor [ brick:value "Shaw_Auditorium_Building"^^xsd:string ] ;
+    ext:contractor [ brick:value "SolarEdge"^^xsd:string ] ;
     ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
-            brick:value 88.48 ] .
+            brick:value 88.48 ] ;
+    ext:azimuth [ brick:value "Mixed"^^xsd:string ] ;
+    ext:tiltAngle [ brick:value "0deg"^^xsd:string ] .
 
 pvsystem:Tower_A a brick:PV_Generation_System ;
     brick:coordinates [ brick:latitude 22.3 ;
@@ -516,9 +615,11 @@ pvsystem:Tower_A a brick:PV_Generation_System ;
     ext:altitude [ brick:hasUnit unit:M ;
             brick:value 124.0 ] ;
     ext:connectionDate [ brick:value "2020-12-01T00:00:00"^^xsd:string ] ;
-    ext:contractor [ brick:value "University_Apartments_Tower_A"^^xsd:string ] ;
+    ext:contractor [ brick:value "SMA_Solar_Technology"^^xsd:string ] ;
     ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
-            brick:value 40.29 ] .
+            brick:value 40.29 ] ;
+    ext:azimuth [ brick:value "58deg"^^xsd:string ] ;
+    ext:tiltAngle [ brick:value "0deg"^^xsd:string ] .
 
 pvsystem:UG_Hall2_2F a brick:PV_Generation_System ;
     brick:coordinates [ brick:latitude 22.41 ;
@@ -528,9 +629,11 @@ pvsystem:UG_Hall2_2F a brick:PV_Generation_System ;
     ext:altitude [ brick:hasUnit unit:M ;
             brick:value 25.0 ] ;
     ext:connectionDate [ brick:value "2021-06-01T00:00:00"^^xsd:string ] ;
-    ext:contractor [ brick:value "Undergraduate_Hall_II"^^xsd:string ] ;
+    ext:contractor [ brick:value "SolarEdge"^^xsd:string ] ;
     ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
-            brick:value 23.4 ] .
+            brick:value 23.4 ] ;
+    ext:azimuth [ brick:value "0deg"^^xsd:string ] ;
+    ext:tiltAngle [ brick:value "0deg"^^xsd:string ] .
 
 pvsystem:UG_Hall2_RF a brick:PV_Generation_System ;
     brick:coordinates [ brick:latitude 22.41 ;
@@ -540,9 +643,11 @@ pvsystem:UG_Hall2_RF a brick:PV_Generation_System ;
     ext:altitude [ brick:hasUnit unit:M ;
             brick:value 22.0 ] ;
     ext:connectionDate [ brick:value "2021-04-30T00:00:00"^^xsd:string ] ;
-    ext:contractor [ brick:value "Undergraduate_Hall_II"^^xsd:string ] ;
+    ext:contractor [ brick:value "SolarEdge"^^xsd:string ] ;
     ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
-            brick:value 8.0 ] .
+            brick:value 8.0 ] ;
+    ext:azimuth [ brick:value "0deg"^^xsd:string ] ;
+    ext:tiltAngle [ brick:value "0deg"^^xsd:string ] .
 
 pvsystem:UG_Hall3 a brick:PV_Generation_System ;
     brick:coordinates [ brick:latitude 22.41 ;
@@ -552,9 +657,11 @@ pvsystem:UG_Hall3 a brick:PV_Generation_System ;
     ext:altitude [ brick:hasUnit unit:M ;
             brick:value 38.0 ] ;
     ext:connectionDate [ brick:value "2021-06-01T00:00:00"^^xsd:string ] ;
-    ext:contractor [ brick:value "Undergraduate_Hall_III"^^xsd:string ] ;
+    ext:contractor [ brick:value "SolarEdge"^^xsd:string ] ;
     ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
-            brick:value 25.0 ] .
+            brick:value 25.0 ] ;
+    ext:azimuth [ brick:value "0deg"^^xsd:string ] ;
+    ext:tiltAngle [ brick:value "0deg"^^xsd:string ] .
 
 pvsystem:UG_Hall4 a brick:PV_Generation_System ;
     brick:coordinates [ brick:latitude 22.41 ;
@@ -564,9 +671,11 @@ pvsystem:UG_Hall4 a brick:PV_Generation_System ;
     ext:altitude [ brick:hasUnit unit:M ;
             brick:value 19.0 ] ;
     ext:connectionDate [ brick:value "2021-06-01T00:00:00"^^xsd:string ] ;
-    ext:contractor [ brick:value "Undergraduate_Hall_IV"^^xsd:string ] ;
+    ext:contractor [ brick:value "SolarEdge"^^xsd:string ] ;
     ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
-            brick:value 32.76 ] .
+            brick:value 32.76 ] ;
+    ext:azimuth [ brick:value "65/-10deg"^^xsd:string ] ;
+    ext:tiltAngle [ brick:value "0/15deg"^^xsd:string ] .
 
 pvsystem:UG_Hall4_Flexible_PV a brick:PV_Generation_System ;
     brick:coordinates [ brick:latitude 22.41 ;
@@ -576,9 +685,11 @@ pvsystem:UG_Hall4_Flexible_PV a brick:PV_Generation_System ;
     ext:altitude [ brick:hasUnit unit:M ;
             brick:value 19.0 ] ;
     ext:connectionDate [ brick:value "2021-06-01T00:00:00"^^xsd:string ] ;
-    ext:contractor [ brick:value "Undergraduate_Hall_IV"^^xsd:string ] ;
+    ext:contractor [ brick:value "SolarEdge"^^xsd:string ] ;
     ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
-            brick:value 19.84 ] .
+            brick:value 19.84 ] ;
+    ext:azimuth [ brick:value "Mixed"^^xsd:string ] ;
+    ext:tiltAngle [ brick:value "Mixed"^^xsd:string ] .
 
 pvsystem:UG_Hall6 a brick:PV_Generation_System ;
     brick:coordinates [ brick:latitude 22.41 ;
@@ -588,9 +699,11 @@ pvsystem:UG_Hall6 a brick:PV_Generation_System ;
     ext:altitude [ brick:hasUnit unit:M ;
             brick:value 25.0 ] ;
     ext:connectionDate [ brick:value "2021-04-30T00:00:00"^^xsd:string ] ;
-    ext:contractor [ brick:value "Undergraduate_Hall_VI"^^xsd:string ] ;
+    ext:contractor [ brick:value "SolarEdge"^^xsd:string ] ;
     ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
-            brick:value 25.0 ] .
+            brick:value 25.0 ] ;
+    ext:azimuth [ brick:value "0deg"^^xsd:string ] ;
+    ext:tiltAngle [ brick:value "0deg"^^xsd:string ] .
 
 pvsystem:UG_Hall7 a brick:PV_Generation_System ;
     brick:coordinates [ brick:latitude 22.41 ;
@@ -600,9 +713,11 @@ pvsystem:UG_Hall7 a brick:PV_Generation_System ;
     ext:altitude [ brick:hasUnit unit:M ;
             brick:value 27.0 ] ;
     ext:connectionDate [ brick:value "2021-06-01T00:00:00"^^xsd:string ] ;
-    ext:contractor [ brick:value "Undergraduate_Hall_VII"^^xsd:string ] ;
+    ext:contractor [ brick:value "SolarEdge"^^xsd:string ] ;
     ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
-            brick:value 31.98 ] .
+            brick:value 31.98 ] ;
+    ext:azimuth [ brick:value "56/146deg"^^xsd:string ] ;
+    ext:tiltAngle [ brick:value "0/11deg"^^xsd:string ] .
 
 pvsystem:UG_Hall7_Flexible_PV a brick:PV_Generation_System ;
     brick:coordinates [ brick:latitude 22.41 ;
@@ -612,9 +727,11 @@ pvsystem:UG_Hall7_Flexible_PV a brick:PV_Generation_System ;
     ext:altitude [ brick:hasUnit unit:M ;
             brick:value 27.0 ] ;
     ext:connectionDate [ brick:value "2021-06-01T00:00:00"^^xsd:string ] ;
-    ext:contractor [ brick:value "Undergraduate_Hall_VII"^^xsd:string ] ;
+    ext:contractor [ brick:value "SMA_Solar_Technology"^^xsd:string ] ;
     ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
-            brick:value 5.58 ] .
+            brick:value 5.58 ] ;
+    ext:azimuth [ brick:value "Mixed"^^xsd:string ] ;
+    ext:tiltAngle [ brick:value "Mixed"^^xsd:string ] .
 
 pvsystem:UG_Hall8 a brick:PV_Generation_System ;
     brick:coordinates [ brick:latitude 22.28 ;
@@ -624,9 +741,11 @@ pvsystem:UG_Hall8 a brick:PV_Generation_System ;
     ext:altitude [ brick:hasUnit unit:M ;
             brick:value 34.0 ] ;
     ext:connectionDate [ brick:value "2023-03-01T00:00:00"^^xsd:string ] ;
-    ext:contractor [ brick:value "Undergraduate_Hall_VIII"^^xsd:string ] ;
+    ext:contractor [ brick:value "SolarEdge"^^xsd:string ] ;
     ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
-            brick:value 25.0 ] .
+            brick:value 25.0 ] ;
+    ext:azimuth [ brick:value "0deg"^^xsd:string ] ;
+    ext:tiltAngle [ brick:value "0deg"^^xsd:string ] .
 
 pvsystem:UG_Hall9 a brick:PV_Generation_System ;
     brick:coordinates [ brick:latitude 22.28 ;
@@ -636,9 +755,11 @@ pvsystem:UG_Hall9 a brick:PV_Generation_System ;
     ext:altitude [ brick:hasUnit unit:M ;
             brick:value 47.0 ] ;
     ext:connectionDate [ brick:value "2023-03-01T00:00:00"^^xsd:string ] ;
-    ext:contractor [ brick:value "Undergraduate_Hall_IX"^^xsd:string ] ;
+    ext:contractor [ brick:value "SolarEdge"^^xsd:string ] ;
     ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
-            brick:value 25.0 ] .
+            brick:value 25.0 ] ;
+    ext:azimuth [ brick:value "0deg"^^xsd:string ] ;
+    ext:tiltAngle [ brick:value "0deg"^^xsd:string ] .
 
 pvsystem:Wong_Check_She_Research_Centre a brick:PV_Generation_System ;
     brick:coordinates [ brick:latitude 22.28 ;
@@ -649,9 +770,11 @@ pvsystem:Wong_Check_She_Research_Centre a brick:PV_Generation_System ;
     ext:altitude [ brick:hasUnit unit:M ;
             brick:value 136.0 ] ;
     ext:connectionDate [ brick:value "2021-08-31 00:00:00"^^xsd:string ] ;
-    ext:contractor [ brick:value "Solaredge"^^xsd:string ] ;
+    ext:contractor [ brick:value "SolarEdge"^^xsd:string ] ;
     ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
-            brick:value 100.0 ] .
+            brick:value 100.0 ] ;
+    ext:azimuth [ brick:value "0deg"^^xsd:string ] ;
+    ext:tiltAngle [ brick:value "0deg"^^xsd:string ] .
 
 pvsystem:Zone_A1 a brick:PV_Generation_System ;
     brick:coordinates [ brick:latitude 22.41 ;
@@ -661,9 +784,11 @@ pvsystem:Zone_A1 a brick:PV_Generation_System ;
     ext:altitude [ brick:hasUnit unit:M ;
             brick:value 125.0 ] ;
     ext:connectionDate [ brick:value "2021-06-01T00:00:00"^^xsd:string ] ;
-    ext:contractor [ brick:value "AcademicBuilding"^^xsd:string ] ;
+    ext:contractor [ brick:value "SolarEdge"^^xsd:string ] ;
     ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
-            brick:value 33.3 ] .
+            brick:value 33.3 ] ;
+    ext:azimuth [ brick:value "0deg"^^xsd:string ] ;
+    ext:tiltAngle [ brick:value "0deg"^^xsd:string ] .
 
 pvsystem:Zone_A2 a brick:PV_Generation_System ;
     brick:coordinates [ brick:latitude 22.28 ;
@@ -675,9 +800,11 @@ pvsystem:Zone_A2 a brick:PV_Generation_System ;
     ext:altitude [ brick:hasUnit unit:M ;
             brick:value 125.0 ] ;
     ext:connectionDate [ brick:value "2023-05-31T00:00:00"^^xsd:string ] ;
-    ext:contractor [ brick:value "Solaredge"^^xsd:string ] ;
+    ext:contractor [ brick:value "SolarEdge"^^xsd:string ] ;
     ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
-            brick:value 249.5 ] .
+            brick:value 249.5 ] ;
+    ext:azimuth [ brick:value "0deg"^^xsd:string ] ;
+    ext:tiltAngle [ brick:value "0deg"^^xsd:string ] .
 
 pvsystem:Zone_A4 a brick:PV_Generation_System ;
     brick:coordinates [ brick:latitude 22.41 ;
@@ -687,9 +814,11 @@ pvsystem:Zone_A4 a brick:PV_Generation_System ;
     ext:altitude [ brick:hasUnit unit:M ;
             brick:value 125.0 ] ;
     ext:connectionDate [ brick:value "2021-06-01T00:00:00"^^xsd:string ] ;
-    ext:contractor [ brick:value "AcademicBuilding"^^xsd:string ] ;
+    ext:contractor [ brick:value "SolarEdge"^^xsd:string ] ;
     ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
-            brick:value 55.0 ] .
+            brick:value 55.0 ] ;
+    ext:azimuth [ brick:value "0deg"^^xsd:string ] ;
+    ext:tiltAngle [ brick:value "0deg"^^xsd:string ] .
 
 pvsystem:Zone_A5 a brick:PV_Generation_System ;
     brick:coordinates [ brick:latitude 22.28 ;
@@ -699,9 +828,11 @@ pvsystem:Zone_A5 a brick:PV_Generation_System ;
     ext:altitude [ brick:hasUnit unit:M ;
             brick:value 125.0 ] ;
     ext:connectionDate [ brick:value "2021-10-02T00:00:00"^^xsd:string ] ;
-    ext:contractor [ brick:value "AcademicBuilding"^^xsd:string ] ;
+    ext:contractor [ brick:value "SolarEdge"^^xsd:string ] ;
     ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
-            brick:value 17.0 ] .
+            brick:value 17.0 ] ;
+    ext:azimuth [ brick:value "0deg"^^xsd:string ] ;
+    ext:tiltAngle [ brick:value "0deg"^^xsd:string ] .
 
 pvsystem:Zone_A6 a brick:PV_Generation_System ;
     brick:coordinates [ brick:latitude 22.41 ;
@@ -711,9 +842,11 @@ pvsystem:Zone_A6 a brick:PV_Generation_System ;
     ext:altitude [ brick:hasUnit unit:M ;
             brick:value 125.0 ] ;
     ext:connectionDate [ brick:value "2021-07-31T00:00:00"^^xsd:string ] ;
-    ext:contractor [ brick:value "AcademicBuilding"^^xsd:string ] ;
+    ext:contractor [ brick:value "SolarEdge"^^xsd:string ] ;
     ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
-            brick:value 50.0 ] .
+            brick:value 50.0 ] ;
+    ext:azimuth [ brick:value "0deg"^^xsd:string ] ;
+    ext:tiltAngle [ brick:value "0deg"^^xsd:string ] .
 
 pvsystem:Zone_A7 a brick:PV_Generation_System ;
     brick:coordinates [ brick:latitude 22.28 ;
@@ -723,9 +856,11 @@ pvsystem:Zone_A7 a brick:PV_Generation_System ;
     ext:altitude [ brick:hasUnit unit:M ;
             brick:value 125.0 ] ;
     ext:connectionDate [ brick:value "2021-11-08T00:00:00"^^xsd:string ] ;
-    ext:contractor [ brick:value "AcademicBuilding"^^xsd:string ] ;
+    ext:contractor [ brick:value "SolarEdge"^^xsd:string ] ;
     ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
-            brick:value 12.78 ] .
+            brick:value 12.78 ] ;
+    ext:azimuth [ brick:value "90/-90deg"^^xsd:string ] ;
+    ext:tiltAngle [ brick:value "10deg"^^xsd:string ] .
 
 pvsystem:Zone_D a brick:PV_Generation_System ;
     brick:coordinates [ brick:latitude 22.41 ;
@@ -736,9 +871,11 @@ pvsystem:Zone_D a brick:PV_Generation_System ;
     ext:altitude [ brick:hasUnit unit:M ;
             brick:value 125.0 ] ;
     ext:connectionDate [ brick:value "2021-12-01T00:00:00"^^xsd:string ] ;
-    ext:contractor [ brick:value "Solaredge"^^xsd:string ] ;
+    ext:contractor [ brick:value "SolarEdge"^^xsd:string ] ;
     ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
             brick:value 68.62 ] .
+    ext:azimuth [ brick:value "Mixed"^^xsd:string ] ;
+    ext:tiltAngle [ brick:value "10deg"^^xsd:string ] .
 
 pvsystem:Zone_J1 a brick:PV_Generation_System ;
     brick:coordinates [ brick:latitude 22.28 ;
@@ -748,9 +885,11 @@ pvsystem:Zone_J1 a brick:PV_Generation_System ;
     ext:altitude [ brick:hasUnit unit:M ;
             brick:value 125.0 ] ;
     ext:connectionDate [ brick:value "2021-11-08T00:00:00"^^xsd:string ] ;
-    ext:contractor [ brick:value "AcademicBuilding"^^xsd:string ] ;
+    ext:contractor [ brick:value "SolarEdge"^^xsd:string ] ;
     ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
-            brick:value 25.55 ] .
+            brick:value 25.55 ] ;
+    ext:azimuth [ brick:value "Mixed"^^xsd:string ] ;
+    ext:tiltAngle [ brick:value "10deg"^^xsd:string ] .
 
 pvsystem:Zone_J2 a brick:PV_Generation_System ;
     brick:coordinates [ brick:latitude 22.41 ;
@@ -760,9 +899,11 @@ pvsystem:Zone_J2 a brick:PV_Generation_System ;
     ext:altitude [ brick:hasUnit unit:M ;
             brick:value 125.0 ] ;
     ext:connectionDate [ brick:value "2021-12-01T00:00:00"^^xsd:string ] ;
-    ext:contractor [ brick:value "AcademicBuilding"^^xsd:string ] ;
+    ext:contractor [ brick:value "SolarEdge"^^xsd:string ] ;
     ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
-            brick:value 50.0 ] .
+            brick:value 50.0 ] ;
+    ext:azimuth [ brick:value "Mixed"^^xsd:string ] ;
+    ext:tiltAngle [ brick:value "10deg"^^xsd:string ] .
 
 pvsystem:Zone_L1__Station_1_ a brick:PV_Generation_System ;
     brick:coordinates [ brick:latitude 22.3 ;
@@ -775,7 +916,9 @@ pvsystem:Zone_L1__Station_1_ a brick:PV_Generation_System ;
     ext:connectionDate [ brick:value "2021-01-30T00:00:00"^^xsd:string ] ;
     ext:contractor [ brick:value "AcademicBuilding"^^xsd:string ] ;
     ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
-            brick:value 25.0 ] .
+            brick:value 25.0 ] ;
+    ext:azimuth [ brick:value "Mixed"^^xsd:string ] ;
+    ext:tiltAngle [ brick:value "10deg"^^xsd:string ] .
 
 pvsystem:Zone_L1__Station_2_ a brick:PV_Generation_System ;
     brick:coordinates [ brick:latitude 22.3 ;
@@ -786,9 +929,11 @@ pvsystem:Zone_L1__Station_2_ a brick:PV_Generation_System ;
     ext:altitude [ brick:hasUnit unit:M ;
             brick:value 125.0 ] ;
     ext:connectionDate [ brick:value "2021-01-30T00:00:00"^^xsd:string ] ;
-    ext:contractor [ brick:value "AcademicBuilding"^^xsd:string ] ;
+    ext:contractor [ brick:value "SMA_Solar_Technology"^^xsd:string ] ;
     ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
-            brick:value 25.0 ] .
+            brick:value 25.0 ] ;
+    ext:azimuth [ brick:value "Mixed"^^xsd:string ] ;
+    ext:tiltAngle [ brick:value "10deg"^^xsd:string ] .
 
 pvsystem:Zone_L2 a brick:PV_Generation_System ;
     brick:coordinates [ brick:latitude 22.41 ;
@@ -798,9 +943,11 @@ pvsystem:Zone_L2 a brick:PV_Generation_System ;
     ext:altitude [ brick:hasUnit unit:M ;
             brick:value 125.0 ] ;
     ext:connectionDate [ brick:value "2022-07-30T00:00:00"^^xsd:string ] ;
-    ext:contractor [ brick:value "AcademicBuilding"^^xsd:string ] ;
+    ext:contractor [ brick:value "SMA_Solar_Technology"^^xsd:string ] ;
     ext:ratedPowerOutput [ brick:hasUnit unit:KW ;
-            brick:value 10.0 ] .
+            brick:value 10.0 ] ;
+    ext:azimuth [ brick:value "0deg"^^xsd:string ] ;
+    ext:tiltAngle [ brick:value "0deg"^^xsd:string ] .
 
 extsh:AltitudeShape a owl:Class,
         sh:NodeShape ;
